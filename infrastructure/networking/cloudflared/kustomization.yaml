@@ -17,6 +17,5 @@ configMapGenerator:
     options:
       annotations:
         argocd.argoproj.io/sync-wave: "-2"
-
 # NOTE: Secret (credentials) should be created manually via kubectl:
 # kubectl -n cloudflared create secret generic tunnel-credentials --from-file=credentials.json

@@ -16,7 +16,7 @@ spec:
             path: monitoring/monitoring-components-appset.yaml
   template:
     metadata:
-      name: 'monitoring-{{path.basename}}'
+      name: "monitoring-{{path.basename}}"
       labels:
         type: monitoring
     spec:
@@ -26,10 +26,10 @@ spec:
           name: kustomize-build-with-helm
         repoURL: https://github.com/Sandesh-Solabannavar/homelab.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: "{{path}}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: "{{path.basename}}"
       syncPolicy:
         automated:
           selfHeal: true

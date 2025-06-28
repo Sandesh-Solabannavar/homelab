@@ -15,7 +15,7 @@ spec:
           - path: infrastructure/controllers/*
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: "{{path.basename}}"
       labels:
         type: infrastructure
     spec:
@@ -25,10 +25,10 @@ spec:
           name: kustomize-build-with-helm
         repoURL: https://github.com/Sandesh-Solabannavar/homelab.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: "{{path}}"
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: "{{path.basename}}"
       syncPolicy:
         automated:
           prune: true
