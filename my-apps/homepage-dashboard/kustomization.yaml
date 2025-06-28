@@ -6,6 +6,7 @@ namespace: homepage-dashboard
 resources:
   - deployment.yaml
   - service.yaml
-  - homepage-dashboard-ingress.yaml
+  # - homepage-dashboard-ingress.yaml
+  - http-route.yaml
   - pvc.yaml
-  - ns.yaml
+  - namespace.yaml

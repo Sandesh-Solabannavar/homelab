@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
-  - hello-world-ingress.yaml
+  # - hello-world-ingress.yaml
+  - http-route.yaml
   - namespace.yaml
