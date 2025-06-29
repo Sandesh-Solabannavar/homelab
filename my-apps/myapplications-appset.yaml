@@ -9,7 +9,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/Sandesh-Solabannavar/homelab.git
+        repoURL: https://github.com/Sandesh-Solabannavar/homelab
         revision: HEAD
         directories:
           - path: my-apps/*
@@ -26,7 +26,7 @@ spec:
       source:
         plugin:
           name: kustomize-build-with-helm
-        repoURL: https://github.com/Sandesh-Solabannavar/homelab.git
+        repoURL: https://github.com/Sandesh-Solabannavar/homelab
         targetRevision: HEAD
         path: "{{path}}"
       destination:
