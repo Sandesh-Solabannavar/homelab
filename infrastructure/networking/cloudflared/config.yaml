@@ -3,22 +3,11 @@ credentials-file: /etc/cloudflared/credentials/credentials.json
 metrics: 0.0.0.0:2000
 no-autoupdate: true
 ingress:
-  - hostname: hello.isandeshsol.com
-    service: http://traefik.traefik.svc.cluster.local:80
-    originRequest:
-      logHeaders: true
-
-  - hostname: "*.isandeshsol.com"
+  - hostname: argocd.isandeshsol.com
     service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
       originServerName: "*.isandeshsol.com"
       logHeaders: true
 
-  - hostname: isandeshsol.com
-    service: https://traefik.traefik.svc.cluster.local:443
-    originRequest:
-      noTLSVerify: true
-      originServerName: isandeshsol.com
-      logHeaders: true
   - service: http_status:404
