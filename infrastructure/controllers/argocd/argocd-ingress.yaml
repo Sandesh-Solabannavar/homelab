@@ -1,12 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-ingress
+  name: argocd-server
   namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-stg
-    cert-manager.io/common-name: argocd.isandeshsol.com
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    kubernetes.io/ingress.class: traefik-external
 spec:
   ingressClassName: traefik-external
   rules:
