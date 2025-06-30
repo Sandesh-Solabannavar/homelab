@@ -5,7 +5,7 @@ metadata:
   namespace: hello-world
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-stg
-    cert-manager.io/common-name: hello-world.isandeshsol.com
+    cert-manager.io/common-name: hello.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   ingressClassName: traefik
@@ -19,5 +19,5 @@ spec:
           port: 8080
   tls:
     - hosts:
-        - hello-world.isandeshsol.com
+        - hello.isandeshsol.com
       secretName: hello-world-tls
