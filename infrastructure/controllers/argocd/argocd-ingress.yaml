@@ -4,8 +4,9 @@ metadata:
   name: argocd
   namespace: argocd
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-stg
     kubernetes.io/ingress.class: traefik-external
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   entryPoints:
     - websecure

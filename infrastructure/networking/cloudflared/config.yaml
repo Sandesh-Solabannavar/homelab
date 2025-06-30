@@ -10,21 +10,6 @@ ingress:
     service: http://traefik.kube-system.svc.cluster.local:80
     originRequest:
       logHeaders: true
-      headers:
-        - name: CF-Connecting-IP
-        - name: X-Real-IP
-        - name: CF-IPCountry
-        - name: CF-Ray
-        - name: CF-Visitor
-        - name: CF-Device-Type
-        - name: CF-IPCITY
-        - name: CF-IPCONTINENT
-        - name: CF-IPLATITUDE
-        - name: CF-IPLONGITUDE
-        - name: CF-IPREGION
-        - name: X-Forwarded-For
-        - name: Accept-Language
-        - name: User-Agent
 
   - hostname: "*.isandeshsol.com"
     service: https://traefik.kube-system.svc.cluster.local:443
@@ -32,28 +17,6 @@ ingress:
       noTLSVerify: true
       originServerName: "*.isandeshsol.com"
       logHeaders: true
-      headers:
-        - name: CF-Connecting-IP
-        - name: X-Real-IP
-        - name: CF-IPCountry
-        - name: CF-Ray
-        - name: CF-Visitor
-        - name: CF-Device-Type
-        - name: CF-IPCITY
-        - name: CF-IPCONTINENT
-        - name: CF-IPLATITUDE
-        - name: CF-IPLONGITUDE
-        - name: CF-IPREGION
-        - name: X-Forwarded-For
-        - name: Accept-Language
-        - name: User-Agent
-        - name: True-Client-IP
-        - name: CF-RAY
-        - name: CF-Worker
-        - name: CF-Client-Bot
-        - name: CF-Bot-Score
-        - name: CF-Challenge
-        - name: CF-Bot-Management-Tag
 
   - hostname: isandeshsol.com
     service: https://traefik.kube-system.svc.cluster.local:443
@@ -61,20 +24,5 @@ ingress:
       noTLSVerify: true
       originServerName: isandeshsol.com
       logHeaders: true
-      headers:
-        - name: CF-Connecting-IP
-        - name: X-Real-IP
-        - name: CF-IPCountry
-        - name: CF-Ray
-        - name: CF-Visitor
-        - name: CF-Device-Type
-        - name: CF-IPCITY
-        - name: CF-IPCONTINENT
-        - name: CF-IPLATITUDE
-        - name: CF-IPLONGITUDE
-        - name: CF-IPREGION
-        - name: X-Forwarded-For
-        - name: Accept-Language
-        - name: User-Agent
 
   - service: http_status:404
