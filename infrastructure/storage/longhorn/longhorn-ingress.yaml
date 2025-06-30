@@ -3,10 +3,8 @@ kind: IngressRoute
 metadata:
   name: longhorn-frontend
   namespace: longhorn-system
-  # annotations:
-  #   kubernetes.io/ingress.class: traefik-external
-  #   cert-manager.io/cluster-issuer: letsencrypt-stg
-  #   acme.cert-manager.io/http01-edit-in-place: "true"
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
 spec:
   entryPoints:
     - websecure
