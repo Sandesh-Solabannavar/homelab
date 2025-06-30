@@ -4,9 +4,9 @@ kind: Kustomization
 namespace: homepage-dashboard
 
 resources:
+  - namespace.yaml
   - deployment.yaml
   - service.yaml
-  # - homepage-dashboard-ingress.yaml
-  - http-route.yaml
+  - ingress.yaml
+  # - http-route.yaml
   - pvc.yaml
-  - namespace.yaml
