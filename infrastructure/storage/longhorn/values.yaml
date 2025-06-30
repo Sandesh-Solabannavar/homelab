@@ -9,3 +9,9 @@ persistence:
   reclaimPolicy: Retain
 ingress:
   enabled: false
+service:
+  ui:
+    # -- Service type for Longhorn UI. (Options: "ClusterIP", "NodePort", "LoadBalancer", "Rancher-Proxy")
+    type: LoadBalancer
+    # -- LoadBalancer IP for Longhorn UI. Must be within MetalLB IP pool.
+    loadBalancerIP: 192.168.1.88

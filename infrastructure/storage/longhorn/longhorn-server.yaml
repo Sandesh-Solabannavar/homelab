@@ -6,10 +6,11 @@ metadata:
   name: longhorn-frontend
   namespace: longhorn-system
 spec:
+  type: LoadBalancer
+  loadBalancerIP: 192.168.1.88 # Must be within MetalLB IP pool
   ports:
-    - port: 8000
+    - port: 80
       protocol: TCP
-      targetPort: 8000
-      name: web
+      targetPort: 80
   selector:
     app: longhorn-ui
