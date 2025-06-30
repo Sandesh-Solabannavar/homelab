@@ -6,7 +6,7 @@ metadata:
 spec:
   addresses:
     - type: IPAddress
-      value: 192.168.1.224
+      value: 192.168.1.80
   gatewayClassName: traefik
   listeners:
     - name: http
@@ -21,6 +21,7 @@ spec:
       port: 443
       hostname: "*.isandeshsol.com"
       tls:
+        mode: Terminate
         certificateRefs:
           - name: cert-isandeshsol
             kind: Secret
