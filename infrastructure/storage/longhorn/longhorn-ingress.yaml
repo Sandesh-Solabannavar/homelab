@@ -20,7 +20,4 @@ spec:
         - name: longhorn-frontend
           port: 8000
   tls:
-    secretName: longhorn-ingress-stg
-    certResolver: letsencrypt-stg # Reference the cert-manager resolver
-    domains:
-      - main: longhorn.isandeshsol.com
+    secretName: longhorn-ingress-tls

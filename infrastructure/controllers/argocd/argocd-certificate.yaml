@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-ingress-tls
+  namespace: argocd
+spec:
+  secretName: argocd-ingress-tls
+  issuerRef:
+    name: letsencrypt-stg
+    kind: ClusterIssuer
+  dnsNames:
+    - argocd.isandeshsol.com

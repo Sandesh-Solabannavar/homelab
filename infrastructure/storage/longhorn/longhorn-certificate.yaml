@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: longhorn-ingress-tls
+  namespace: longhorn-system
+spec:
+  secretName: longhorn-ingress-tls
+  issuerRef:
+    name: letsencrypt-stg
+    kind: ClusterIssuer
+  dnsNames:
+    - longhorn.isandeshsol.com
