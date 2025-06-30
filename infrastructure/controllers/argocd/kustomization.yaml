@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
-  # - argocd-ingress.yaml
-  - http-route.yaml
+  - argocd-ingress.yaml
+  # - http-route.yaml
 
 helmCharts:
   - name: argo-cd

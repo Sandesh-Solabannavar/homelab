@@ -10,3 +10,4 @@ infrastructure/controllers/argocd/charts/*
 /monitoring/thanos/charts
 tunnel-creds.json
 *.deb
+secrets/*

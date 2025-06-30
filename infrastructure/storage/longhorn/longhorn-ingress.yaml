@@ -1,25 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server
-  namespace: argocd
+  name: longhorn-ui
+  namespace: longhorn-system
   annotations:
     kubernetes.io/ingress.class: traefik
     cert-manager.io/cluster-issuer: letsencrypt-stg
     acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   rules:
-    - host: argocd.isandeshsol.com
+    - host: longhorn.isandeshsol.com
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: argocd-server
+                name: longhorn-frontend
                 port:
                   number: 80
   tls:
     - hosts:
-        - argocd.isandeshsol.com
-      secretName: argocd-ingress-stg
+        - longhorn.isandeshsol.com
+      secretName: longhorn-ingress-stg
