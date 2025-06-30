@@ -5,9 +5,10 @@ metadata:
   namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-stg
-    kubernetes.io/ingress.class: traefik-external
+    cert-manager.io/common-name: argocd.isandeshsol.com
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
-  ingressClassName: traefik-external
+  ingressClassName: traefik
   rules:
     - host: argocd.isandeshsol.com
       http:
