@@ -16,7 +16,7 @@ spec:
             value: /
       backendRefs:
         - name: homepage-dashboard
-          port: 3000
+          port: 80
   tls:
     - hosts:
         - homepage.isandeshsol.com
