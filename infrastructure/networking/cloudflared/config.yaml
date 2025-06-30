@@ -4,19 +4,19 @@ metrics: 0.0.0.0:2000
 no-autoupdate: true
 ingress:
   - hostname: hello.isandeshsol.com
-    service: http://traefik.kube-system.svc.cluster.local:80
+    service: http://traefik.traefik.svc.cluster.local:80
     originRequest:
       logHeaders: true
 
   - hostname: "*.isandeshsol.com"
-    service: https://traefik.kube-system.svc.cluster.local:443
+    service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
       originServerName: "*.isandeshsol.com"
       logHeaders: true
 
   - hostname: isandeshsol.com
-    service: https://traefik.kube-system.svc.cluster.local:443
+    service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
       originServerName: isandeshsol.com
