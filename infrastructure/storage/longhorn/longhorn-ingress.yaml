@@ -14,12 +14,12 @@ spec:
     - match: Host(`www.longhorn.isandeshsol.com`)
       kind: Rule
       services:
-        - name: argocd-server
+        - name: longhorn-frontend
           port: 80
     - match: Host(`longhorn.isandeshsol.com`)
       kind: Rule
       services:
-        - name: argocd-server
+        - name: longhorn-frontend
           port: 80
   tls:
     secretName: longhorn-ingress-stg
