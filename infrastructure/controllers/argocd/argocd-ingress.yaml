@@ -23,4 +23,4 @@ spec:
   tls:
     - hosts:
         - argocd.isandeshsol.com
-      secretName: argocd-ingress-tls
+      secretName: argocd-tls
