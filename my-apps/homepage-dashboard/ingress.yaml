@@ -19,7 +19,7 @@ spec:
               service:
                 name: homepage-dashboard
                 port:
-                  number: 80
+                  number: 3000
   tls:
     - hosts:
         - homepage.isandeshsol.com
