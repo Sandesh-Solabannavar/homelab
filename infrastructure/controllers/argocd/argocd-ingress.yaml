@@ -21,6 +21,4 @@ spec:
         - name: argocd-server
           port: 80
   tls:
-    - hosts:
-        - argocd.isandeshsol.com
-      secretName: argocd-ingress-stg
+    secretName: argocd-ingress-stg
