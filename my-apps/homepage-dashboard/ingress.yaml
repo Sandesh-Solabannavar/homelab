@@ -10,13 +10,16 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
-      backendRefs:
-        - name: homepage-dashboard
-          port: 80
+    - host: homepage.isandeshsol.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: homepage-dashboard
+                port:
+                  number: 80
   tls:
     - hosts:
         - homepage.isandeshsol.com
