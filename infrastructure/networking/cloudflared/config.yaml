@@ -7,14 +7,12 @@ ingress:
     service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
-      originServerName: "*.isandeshsol.com"
       logHeaders: true
 
   - hostname: homepage.isandeshsol.com
-    service: https://traefik.traefik.svc.cluster.local:80
+    service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
-      originServerName: "*.isandeshsol.com"
       logHeaders: true
 
   - service: http_status:404
