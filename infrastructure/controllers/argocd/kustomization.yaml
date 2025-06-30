@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
-  - argocd-service.yaml
+  # - argocd-service.yaml
   # - argocd-certificate.yaml
   - argocd-ingress.yaml
   # - http-route.yaml
