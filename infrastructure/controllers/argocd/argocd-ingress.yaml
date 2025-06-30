@@ -1,25 +1,24 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: argocd
+  name: argocd-server
   namespace: argocd
-  annotations:
-    kubernetes.io/ingress.class: traefik-external
-    cert-manager.io/cluster-issuer: letsencrypt-stg
-    acme.cert-manager.io/http01-edit-in-place: "true"
 spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`www.argocd.isandeshsol.com`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`www.argocd.isandeshsol.com`)
       services:
         - name: argocd-server
           port: 80
-    - match: Host(`argocd.isandeshsol.com`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`argocd.isandeshsol.com`)
       services:
         - name: argocd-server
           port: 80
   tls:
-    secretName: argocd-ingress-stg
+    secretName: argocd-ingress-stg # Traefik stores the certificate in this secret
+    certResolver: letsencrypt-stg # Reference the cert-manager resolver
+    domains:
+      - main: argocd.isandeshsol.com
