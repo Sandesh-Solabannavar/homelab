@@ -26,7 +26,6 @@ spec:
                 name: homepage-env-configmap
           ports:
             - containerPort: 3000
-              protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
