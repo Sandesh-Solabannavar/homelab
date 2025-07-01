@@ -4,7 +4,8 @@ metadata:
   name: homepage-dashboard
   namespace: homepage-dashboard
 spec:
-  type: ClusterIP
+  selector:
+    app: homepage-dashboard
   ports:
     - port: 3000
       targetPort: 3000
