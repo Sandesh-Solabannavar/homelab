@@ -7,18 +7,24 @@ ingress:
     service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
+      httpHostHeader: argocd.isandeshsol.com
       logHeaders: true
+      connectTimeout: 30s
 
   - hostname: homepage.isandeshsol.com
     service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
+      httpHostHeader: homepage.isandeshsol.com
       logHeaders: true
+      connectTimeout: 30s
 
   - hostname: portfolio.isandeshsol.com
-    service: https://traefik.traefik.svc.cluster.local:443
+    service: http://traefik.traefik.svc.cluster.local:80
     originRequest:
       noTLSVerify: true
+      httpHostHeader: portfolio.isandeshsol.com
       logHeaders: true
+      connectTimeout: 30s
 
   - service: http_status:404
