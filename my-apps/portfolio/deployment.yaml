@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: ghcr.io/sandesh-solabannavar/portfolio:v3.0.1
+          image: ghcr.io/sandesh-solabannavar/portfolio:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
