@@ -27,4 +27,12 @@ ingress:
       logHeaders: true
       connectTimeout: 30s
 
+  - hostname: grafana.isandeshsol.com
+    service: https://traefik.traefik.svc.cluster.local:443
+    originRequest:
+      noTLSVerify: true
+      httpHostHeader: grafana.isandeshsol.com
+      logHeaders: true
+      connectTimeout: 30s
+
   - service: http_status:404
