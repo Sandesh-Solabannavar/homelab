@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: ghcr.io/sandesh-solabannavar/portfolio:latest
+          image: ghcr.io/sandesh-solabannavar/portfolio:v3.0.1
           ports:
             - containerPort: 80
