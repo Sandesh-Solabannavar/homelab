@@ -20,9 +20,14 @@ spec:
         fsGroup: 1000
       containers:
         - name: homepage-dashboard
-          image: ghcr.io/gethomepage/homepage:dev
+          image: ghcr.io/gethomepage/homepage:latest
+          envFrom:
+            - configMapRef:
+                name: homepage-env-configmap
           ports:
-            - containerPort: 3000
+            - name: http
+              containerPort: 3000
+              protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
