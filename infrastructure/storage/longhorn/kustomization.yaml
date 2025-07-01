@@ -6,7 +6,7 @@ resources:
   # - httproute.yaml
   # - longhorn-server.yaml
   # - longhorn-certificate.yaml
-  - longhorn-ingress.yaml
+  # - longhorn-ingress.yaml
 helmCharts:
   - name: longhorn
     repo: https://charts.longhorn.io
