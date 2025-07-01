@@ -15,4 +15,10 @@ ingress:
       noTLSVerify: true
       logHeaders: true
 
+  - hostname: portfolio.isandeshsol.com
+    service: https://traefik.traefik.svc.cluster.local:443
+    originRequest:
+      noTLSVerify: true
+      logHeaders: true
+
   - service: http_status:404
