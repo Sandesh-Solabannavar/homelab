@@ -1,0 +1,15 @@
+# Remember to create secret before running this kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: traefik
+resources:
+  - namespace.yaml
+  - middleware.yaml
+  - ingress.yaml
+helmCharts:
+  - name: traefik
+    repo: https://traefik.github.io/charts
+    version: 36.2.0
+    releaseName: traefik
+    namespace: traefik
+    valuesFile: values.yaml

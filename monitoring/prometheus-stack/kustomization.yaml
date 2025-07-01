@@ -3,9 +3,9 @@ kind: Kustomization
 namespace: prometheus-stack
 resources:
   - namespace.yaml
-  - alertmanager-http-route.yaml
-  - grafana-http-route.yaml
-  - prometheus-http-route.yaml
+  - alertmanager-ingress.yaml
+  - grafana-ingress.yaml
+  - prometheus-ingress.yaml
   - custom-alerts.yaml
   - custom-servicemonitors.yaml
 # Strategic merge patches to handle resource conflicts

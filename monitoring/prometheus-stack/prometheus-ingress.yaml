@@ -1,26 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: loki
-  namespace: loki-stack
+  name: prometheus
+  namespace: prometheus-stack
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-stg
-    cert-manager.io/common-name: loki.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   ingressClassName: traefik
   rules:
-    - host: loki.isandeshsol.com
+    - host: prometheus.isandeshsol.com
       http:
         paths:
           - path: /
             pathType: PathPrefix
             backend:
               service:
-                name: loki-gateway
+                name: kube-prometheus-stack-prometheus
                 port:
-                  number: 80
-  tls:
-    - hosts:
-        - loki.isandeshsol.com
-      secretName: loki-tls
+                  number: 9090
