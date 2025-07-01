@@ -4,8 +4,8 @@ metadata:
   name: portfolio
   namespace: portfolio
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-stg
-    cert-manager.io/common-name: portfolio.isandeshsol.com
+    # cert-manager.io/cluster-issuer: letsencrypt-stg
+    # cert-manager.io/common-name: portfolio.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   ingressClassName: traefik
@@ -20,7 +20,7 @@ spec:
                 name: portfolio
                 port:
                   number: 80
-  tls:
-    - hosts:
-        - portfolio.isandeshsol.com
-      secretName: portfolio-tls
+  # tls:
+  #   - hosts:
+  #       - portfolio.isandeshsol.com
+  #     secretName: portfolio-tls
