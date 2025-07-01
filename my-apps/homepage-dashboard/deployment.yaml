@@ -25,8 +25,7 @@ spec:
             - configMapRef:
                 name: homepage-env-configmap
           ports:
-            - name: http
-              containerPort: 3000
+            - containerPort: 3000
               protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false
