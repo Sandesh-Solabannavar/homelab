@@ -12,6 +12,9 @@ crds:
 prometheus:
   enabled: true
   prometheusSpec:
+    serviceMonitorNamespaceSelector:
+      matchLabels:
+        app.kubernetes.io/component: monitoring
     # Data retention and storage
     retention: 30d
     retentionSize: 15GB
