@@ -37,7 +37,7 @@ ingress:
 
   # - service: http_status:404
   - hostname: hello.isandeshsol.com
-    service: hello-world
+    service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       # Add header logging with log-headers flag
       logHeaders: true
