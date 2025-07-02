@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: kubernetes-dashboard
 resources:
   - namespace.yaml
+  - rbac.yaml
 helmCharts:
   - name: kubernetes-dashboard
     repo: https://kubernetes.github.io/dashboard
