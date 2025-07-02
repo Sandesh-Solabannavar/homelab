@@ -3,8 +3,8 @@ kind: Service
 metadata:
   name: hello-world
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 192.168.1.81 # Use an IP from your MetalLB pool
+  type: ClusterIP
+  # loadBalancerIP: 192.168.1.81 # Use an IP from your MetalLB pool
   selector:
     app: hello-world
   ports:
