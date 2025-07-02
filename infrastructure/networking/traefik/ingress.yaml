@@ -9,7 +9,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`traefik.isandeshsol.com`)
+    - match: Host(`traefiklocal.duckdns.org`)
       kind: Rule
       middlewares:
         - name: traefik-dashboard-basicauth
