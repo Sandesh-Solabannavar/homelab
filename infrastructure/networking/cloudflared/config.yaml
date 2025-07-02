@@ -3,36 +3,88 @@ credentials-file: /etc/cloudflared/credentials/credentials.json
 metrics: 0.0.0.0:2000
 no-autoupdate: true
 ingress:
-  - hostname: argocd.isandeshsol.com
+  # - hostname: argocd.isandeshsol.com
+  #   service: https://traefik.traefik.svc.cluster.local:443
+  #   originRequest:
+  #     noTLSVerify: true
+  #     httpHostHeader: argocd.isandeshsol.com
+  #     logHeaders: true
+  #     connectTimeout: 30s
+
+  # - hostname: homepage.isandeshsol.com
+  #   service: https://traefik.traefik.svc.cluster.local:443
+  #   originRequest:
+  #     noTLSVerify: true
+  #     httpHostHeader: homepage.isandeshsol.com
+  #     logHeaders: true
+  #     connectTimeout: 30s
+
+  # - hostname: portfolio.isandeshsol.com
+  #   service: https://traefik.traefik.svc.cluster.local:443
+  #   originRequest:
+  #     noTLSVerify: true
+  #     httpHostHeader: portfolio.isandeshsol.com
+  #     logHeaders: true
+  #     connectTimeout: 30s
+
+  # - hostname: grafana.isandeshsol.com
+  #   service: https://traefik.traefik.svc.cluster.local:443
+  #   originRequest:
+  #     noTLSVerify: true
+  #     httpHostHeader: grafana.isandeshsol.com
+  #     logHeaders: true
+  #     connectTimeout: 30s
+
+  # - service: http_status:404
+
+  - hostname: "*.isandeshsol.com"
     service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
-      httpHostHeader: argocd.isandeshsol.com
+      originServerName: "*.isandeshsol.com"
       logHeaders: true
-      connectTimeout: 30s
-
-  - hostname: homepage.isandeshsol.com
+      headers:
+        - name: CF-Connecting-IP
+        - name: X-Real-IP
+        - name: CF-IPCountry
+        - name: CF-Ray
+        - name: CF-Visitor
+        - name: CF-Device-Type
+        - name: CF-IPCITY
+        - name: CF-IPCONTINENT
+        - name: CF-IPLATITUDE
+        - name: CF-IPLONGITUDE
+        - name: CF-IPREGION
+        - name: X-Forwarded-For
+        - name: Accept-Language
+        - name: User-Agent
+        - name: True-Client-IP
+        - name: CF-IPCountry
+        - name: CF-RAY
+        - name: CF-Worker
+        - name: CF-Client-Bot
+        - name: CF-Bot-Score
+        - name: CF-Challenge
+        - name: CF-Bot-Management-Tag
+  - hostname: isandeshsol.com
     service: https://traefik.traefik.svc.cluster.local:443
     originRequest:
       noTLSVerify: true
-      httpHostHeader: homepage.isandeshsol.com
+      originServerName: isandeshsol.com
       logHeaders: true
-      connectTimeout: 30s
-
-  - hostname: portfolio.isandeshsol.com
-    service: https://traefik.traefik.svc.cluster.local:443
-    originRequest:
-      noTLSVerify: true
-      httpHostHeader: portfolio.isandeshsol.com
-      logHeaders: true
-      connectTimeout: 30s
-
-  - hostname: grafana.isandeshsol.com
-    service: https://traefik.traefik.svc.cluster.local:443
-    originRequest:
-      noTLSVerify: true
-      httpHostHeader: grafana.isandeshsol.com
-      logHeaders: true
-      connectTimeout: 30s
-
+      headers:
+        - name: CF-Connecting-IP
+        - name: X-Real-IP
+        - name: CF-IPCountry
+        - name: CF-Ray
+        - name: CF-Visitor
+        - name: CF-Device-Type
+        - name: CF-IPCITY
+        - name: CF-IPCONTINENT
+        - name: CF-IPLATITUDE
+        - name: CF-IPLONGITUDE
+        - name: CF-IPREGION
+        - name: X-Forwarded-For
+        - name: Accept-Language
+        - name: User-Agent
   - service: http_status:404
