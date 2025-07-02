@@ -36,6 +36,26 @@ ingress:
   #     connectTimeout: 30s
 
   # - service: http_status:404
+  - hostname: hello.isandeshsol.com
+    service: hello-world
+    originRequest:
+      # Add header logging with log-headers flag
+      logHeaders: true
+      headers:
+        - name: CF-Connecting-IP
+        - name: X-Real-IP
+        - name: CF-IPCountry
+        - name: CF-Ray
+        - name: CF-Visitor
+        - name: CF-Device-Type
+        - name: CF-IPCITY
+        - name: CF-IPCONTINENT
+        - name: CF-IPLATITUDE
+        - name: CF-IPLONGITUDE
+        - name: CF-IPREGION
+        - name: X-Forwarded-For
+        - name: Accept-Language
+        - name: User-Agent
 
   - hostname: "*.isandeshsol.com"
     service: https://traefik.traefik.svc.cluster.local:443
