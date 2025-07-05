@@ -4,7 +4,7 @@ metadata:
   name: portfolio
   namespace: portfolio
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: portfolio
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: portfolio
-          image: ghcr.io/sandesh-solabannavar/portfolio-hugo:c95eac8
+          image: ghcr.io/sandesh-solabannavar/portfolio-hugo:6b52ac9
           imagePullPolicy: Always
           ports:
             - containerPort: 80
