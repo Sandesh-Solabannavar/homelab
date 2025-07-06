@@ -129,7 +129,7 @@ grafana:
     - name: Loki
       type: loki
       access: proxy
-      url: http://loki.loki-stack.svc.cluster.local
+      url: https://loki.isandeshsol.com
       jsonData:
         timeout: 60
         maxLines: 1000
