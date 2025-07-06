@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: loki-stack
 resources:
   - namespace.yaml
+  - loki-service.yaml
   # - loki-ingress.yaml
   # - loki-http-route.yaml
 helmCharts:

@@ -31,32 +31,31 @@ write:
 # Enable minio for storage
 minio:
   enabled: true
-
-gateway:
-  ingress:
-    # -- Specifies whether an ingress for the gateway should be created
-    enabled: true
-    # -- Ingress Class Name. MAY be required for Kubernetes versions >= 1.18
-    ingressClassName: "traefik"
-    # -- Annotations for the gateway ingress
-    annotations:
-      {
-        "cert-manager.io/cluster-issuer": "letsencrypt-stg",
-        "cert-manager.io/common-name": "loki.isandeshsol.com",
-        "traefik.ingress.kubernetes.io/router.entrypoints": "websecure",
-      }
-    # -- Labels for the gateway ingress
-    labels: {}
-    # -- Hosts configuration for the gateway ingress, passed through the `tpl` function to allow templating
-    hosts:
-      - host: loki.isandeshsol.com
-        paths:
-          - path: /
-            pathType: Prefix
-            # -- pathType (e.g. ImplementationSpecific, Prefix, .. etc.) might also be required by some Ingress Controllers
-            # pathType: Prefix
-        # -- TLS configuration for the gateway ingress. Hosts passed through the `tpl` function to allow templating
-    tls:
-      - secretName: loki-gateway-tls
-        hosts:
-          - loki.isandeshsol.com
+# gateway:
+#   ingress:
+#     # -- Specifies whether an ingress for the gateway should be created
+#     enabled: false
+#     # -- Ingress Class Name. MAY be required for Kubernetes versions >= 1.18
+#     ingressClassName: "traefik"
+#     # -- Annotations for the gateway ingress
+#     annotations:
+#       {
+#         "cert-manager.io/cluster-issuer": "letsencrypt-stg",
+#         "cert-manager.io/common-name": "loki.isandeshsol.com",
+#         "traefik.ingress.kubernetes.io/router.entrypoints": "websecure",
+#       }
+#     # -- Labels for the gateway ingress
+#     labels: {}
+#     # -- Hosts configuration for the gateway ingress, passed through the `tpl` function to allow templating
+#     hosts:
+#       - host: loki.isandeshsol.com
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             # -- pathType (e.g. ImplementationSpecific, Prefix, .. etc.) might also be required by some Ingress Controllers
+#             # pathType: Prefix
+#         # -- TLS configuration for the gateway ingress. Hosts passed through the `tpl` function to allow templating
+#     tls:
+#       - secretName: loki-gateway-tls
+#         hosts:
+#           - loki.isandeshsol.com
