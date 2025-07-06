@@ -5,6 +5,11 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+    - applicationset.argoproj.io/finalizer
+    - argocd.argoproj.io/application-set-controller
+    - argocd.argoproj.io/sync-wave-finalizer
 spec:
   generators:
     - git:
