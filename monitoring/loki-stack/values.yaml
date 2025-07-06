@@ -52,7 +52,7 @@ gateway:
       - host: loki.isandeshsol.com
         paths:
           - path: /
-            pathType: PathPrefix
+            pathType: Prefix
             # -- pathType (e.g. ImplementationSpecific, Prefix, .. etc.) might also be required by some Ingress Controllers
             # pathType: Prefix
         # -- TLS configuration for the gateway ingress. Hosts passed through the `tpl` function to allow templating
