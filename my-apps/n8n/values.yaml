@@ -1,0 +1,18 @@
+n8n:
+  image:
+    tag: latest
+  database:
+    type: postgresdb
+    postgresdb:
+      host: n8n-db-rw.n8n.svc.cluster.local
+      port: 5432
+      database: n8n
+      user: n8n
+      password:
+        valueFromSecret:
+          name: n8n-db-secret
+          key: password
+  generic:
+    timezone: Asia/Kolkata
+    protocol: http
+    domain: n8n.local # Replace with your domain
