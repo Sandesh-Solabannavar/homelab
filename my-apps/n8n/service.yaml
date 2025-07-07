@@ -5,9 +5,12 @@ metadata:
   namespace: n8n
 spec:
   selector:
-    app.kubernetes.io/name: n8n
+    app: n8n
   ports:
     - port: 80
       targetPort: 5678
       protocol: TCP
       name: http
+  type: ClusterIP
+---
+
