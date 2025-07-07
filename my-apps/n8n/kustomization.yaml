@@ -8,8 +8,8 @@ resources:
 
 helmCharts:
   - name: n8n
-    repo: https://n8n-io.github.io/n8n-helm-chart
-    releaseName: n8n
-    version: 1.2.1 # Use the latest version
+    repo: oci://8gears.container-registry.com/library/n8n
+    releaseName: my-n8n
+    version: 1.0.10 # Use the latest version
     namespace: n8n
     valuesFile: values.yaml
