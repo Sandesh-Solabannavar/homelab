@@ -8,6 +8,6 @@ spec:
     app.kubernetes.io/name: n8n
   ports:
     - port: 80
-      targetPort: http
+      targetPort: 5678
       protocol: TCP
       name: http

@@ -5,11 +5,6 @@ namespace: n8n
 
 resources:
   - namespace.yaml
-
-helmCharts:
-  - name: n8n
-    repo: oci://8gears.container-registry.com/library/n8n
-    releaseName: my-n8n
-    version: 1.0.10 # Use the latest version
-    namespace: n8n
-    valuesFile: values.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
