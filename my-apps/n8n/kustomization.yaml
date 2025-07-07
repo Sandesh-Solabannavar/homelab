@@ -5,6 +5,7 @@ namespace: n8n
 
 resources:
   - namespace.yaml
+  - postgres-cluster.yaml
   - deployment.yaml
   - service.yaml
   - ingress.yaml

@@ -1,0 +1,34 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: n8n-db
+  namespace: n8n
+spec:
+  instances: 1
+  imageName: ghcr.io/cloudnative-pg/postgresql:15
+  storage:
+    storageClass: openebs-hostpath # <- Change to your storage class (e.g., longhorn, openebs-hostpath)
+    size: 1Gi
+
+  bootstrap:
+    initdb:
+      database: n8n
+      owner: n8n
+      secret:
+        name: n8n-db-secret # <- Must exist or be created via ArgoCD
+
+  postgresql:
+    parameters:
+      shared_buffers: 256MB
+      max_connections: "100"
+
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "500m"
+
+  monitoring:
+    enablePodMonitor: false
