@@ -22,7 +22,7 @@ spec:
             - name: DB_TYPE
               value: postgresdb
             - name: DB_POSTGRESDB_HOST
-              value: n8n-db-rw.n8n.svc.cluster.local:5432
+              value: n8n-db-rw
             - name: DB_POSTGRESDB_PORT
               value: "5432"
             - name: DB_POSTGRESDB_DATABASE
@@ -52,3 +52,5 @@ spec:
               value: "5678"
             - name: N8N_PROTOCOL
               value: https
+            - name: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+              value: "true"
