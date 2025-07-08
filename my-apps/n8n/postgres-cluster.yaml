@@ -4,11 +4,11 @@ metadata:
   name: n8n-db
   namespace: n8n
 spec:
-  instances: 1
+  instances: 3
   imageName: ghcr.io/cloudnative-pg/postgresql:15
   storage:
     storageClass: openebs-hostpath # <- Change to your storage class (e.g., longhorn, openebs-hostpath)
-    size: 1Gi
+    size: 5Gi
 
   bootstrap:
     initdb:

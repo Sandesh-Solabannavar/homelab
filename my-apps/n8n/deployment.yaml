@@ -47,7 +47,7 @@ spec:
                   name: n8n-secret
                   key: password
             - name: N8N_HOST
-              value: n8n.isandeshsol.com
+              value: workflow.isandeshsol.com
             - name: N8N_PORT
               value: "5678"
             - name: N8N_PROTOCOL
@@ -57,6 +57,6 @@ spec:
             - name: NODE_ENV
               value: production
             - name: WEBHOOK_URL
-              value: https://n8n.isandeshsol.com/
+              value: https://workflow.isandeshsol.com/
             - name: GENERIC_TIMEZONE
               value: "Asia/Kolkata"

@@ -5,12 +5,12 @@ metadata:
   namespace: n8n
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-stg
-    cert-manager.io/common-name: n8n.isandeshsol.com
+    cert-manager.io/common-name: workflow.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   ingressClassName: traefik
   rules:
-    - host: n8n.isandeshsol.com
+    - host: workflow.isandeshsol.com
       http:
         paths:
           - path: "/"
@@ -22,5 +22,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - n8n.isandeshsol.com
+        - workflow.isandeshsol.com
       secretName: n8n-tls
