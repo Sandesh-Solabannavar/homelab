@@ -46,11 +46,11 @@ spec:
                 secretKeyRef:
                   name: n8n-secret
                   key: password
-            # - name: N8N_HOST
-            #   value: n8n.isandeshsol.com
-            # - name: N8N_PORT
-            #   value: "5678"
-            # - name: N8N_PROTOCOL
-            #   value: https
+            - name: N8N_HOST
+              value: n8n.isandeshsol.com
+            - name: N8N_PORT
+              value: "5678"
+            - name: N8N_PROTOCOL
+              value: https
             - name: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
               value: "true"
