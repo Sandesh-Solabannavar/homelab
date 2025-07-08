@@ -17,7 +17,7 @@ spec:
         - name: n8n
           image: n8nio/n8n:latest
           ports:
-            - containerPort: 5678
+            - containerPort: 80
           env:
             - name: DB_TYPE
               value: postgresdb
