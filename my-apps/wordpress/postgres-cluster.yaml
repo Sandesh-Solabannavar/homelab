@@ -15,5 +15,6 @@ spec:
       owner: wpuser
       secret:
         name: wp-db-secret
+        key: mariadb-password
   monitoring:
     enablePodMonitor: true
