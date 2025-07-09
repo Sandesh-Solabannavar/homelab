@@ -1,0 +1,43 @@
+# replicaCount: 3  # Enable HA with multiple WordPress pods
+
+# persistence:
+#   enabled: true
+#   storageClass: openebs-nfs-rwx  # RWX-enabled storage class
+#   accessModes:
+#     - ReadWriteMany
+#   size: 10Gi
+
+existingSecret: wordpress-admin-secret
+
+mariadb:
+  enabled: false
+
+externalDatabase:
+  host: wp-db-rw.wordpress.svc.cluster.local
+  port: 5432
+  user: ""
+  password: ""
+  database: ""
+
+extraEnvVarsSecret: wp-db-secret
+
+ingress:
+  enabled: true
+  ingressClassName: traefik
+  hostname: wordpress.isandeshsol.com
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+    cert-manager.io/common-name: wordpress.isandeshsol.com
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  tls: true
+  extraTls:
+    - hosts:
+        - wordpress.isandeshsol.com
+      secretName: wordpress-tls
+
+metrics:
+  enabled: true
+
+service:
+  type: ClusterIP
+  

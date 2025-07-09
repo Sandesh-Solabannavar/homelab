@@ -1,0 +1,19 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: wp-db
+  namespace: wordpress
+spec:
+  instances: 3
+  primaryUpdateStrategy: unsupervised
+  storage:
+    storageClass: openebs-hostpath
+    size: 10Gi
+  bootstrap:
+    initdb:
+      database: wordpress
+      owner: wpuser
+      secret:
+        name: wp-db-secret
+  monitoring:
+    enablePodMonitor: true
