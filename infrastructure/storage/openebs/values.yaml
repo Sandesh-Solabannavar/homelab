@@ -50,7 +50,3 @@ nfsProvisioner:
     name: openebs-nfs-rwx
     defaultClass: false
   backendStorageClass: openebs-hostpath  # This must match your LocalPV hostpath SC
-  nfsServer:
-    image:
-      repository: quay.io/openebs/nfs-server-alpine
-      tag: "v3.3.0"
