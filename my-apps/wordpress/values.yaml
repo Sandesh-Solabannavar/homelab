@@ -16,10 +16,9 @@ externalDatabase:
   host: wp-db-rw.wordpress.svc.cluster.local
   port: 5432
   database: wordpress
-  password: 
-    existingSecret: wp-db-secret  # <- reference to a Kubernetes Secret
-    existingSecretKey: password
   user: wpuser
+  existingSecret: wp-db-secret
+  existingSecretPasswordKey: password
 
 ingress:
   enabled: true
@@ -40,4 +39,3 @@ metrics:
 
 service:
   type: ClusterIP
-  
