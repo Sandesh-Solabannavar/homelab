@@ -16,22 +16,28 @@ mariadb:
 
 existingSecret: wordpress-admin-secret
 
-service:
-  type: ClusterIP
-
 ingress:
   enabled: true
   ingressClassName: traefik
   hostname: wordpress.isandeshsol.com
-  tls: true
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-stg
     cert-manager.io/common-name: wordpress.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  tls: true
   extraTls:
     - hosts:
         - wordpress.isandeshsol.com
       secretName: wordpress-tls
+
+metrics:
+  enabled: true
+
+service:
+  type: ClusterIP
+
+wordpressBlog:
+  debug: true
 
 persistence:
   enabled: true
