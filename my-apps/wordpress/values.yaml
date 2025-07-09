@@ -13,10 +13,10 @@ mariadb:
   enabled: false
 
 externalDatabase:
-  host: wp-db-rw.wordpress.svc.cluster.local
+  host: "wp-db-rw.wordpress.svc.cluster.local"
   port: 5432
-  database: wordpress
-  user: wpuser
+  database: "wordpress"
+  user: "wpuser"
   password: ""
   existingSecret: wp-database-secret
 
