@@ -40,3 +40,17 @@ nats:
 localprovisioner:
   enabled: true
   basePath: /var/openebs/local
+
+# ✅ Enable NFS Provisioner for RWX
+nfsProvisioner:
+  enabled: true
+  replicaCount: 3  # You can increase for HA NFS
+  storageClass:
+    create: true
+    name: openebs-nfs-rwx
+    defaultClass: false
+  backendStorageClass: openebs-hostpath  # This must match your LocalPV hostpath SC
+  nfsServer:
+    image:
+      repository: quay.io/openebs/nfs-server-alpine
+      tag: "v3.3.0"
