@@ -17,8 +17,8 @@ externalDatabase:
   port: 5432
   database: "wordpress"
   user: "wpuser"
-  password: ""
-  existingSecret: wp-database-secret
+  password: "admin460946"
+  # existingSecret: wp-database-secret
 
 ingress:
   enabled: true
