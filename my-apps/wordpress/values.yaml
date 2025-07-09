@@ -42,3 +42,11 @@ service:
 
 wordpressBlog:
   debug: true
+
+# Enable PostgreSQL support
+wordpressConfigureCommand: |
+  sed -i "s/define('DB_HOST'.*/define('DB_HOST', getenv('WORDPRESS_DATABASE_HOST'));/g" wp-config.php && \
+  sed -i "s/define('DB_USER'.*/define('DB_USER', getenv('WORDPRESS_DATABASE_USER'));/g" wp-config.php && \
+  sed -i "s/define('DB_PASSWORD'.*/define('DB_PASSWORD', getenv('WORDPRESS_DATABASE_PASSWORD'));/g" wp-config.php && \
+  sed -i "s/define('DB_NAME'.*/define('DB_NAME', getenv('WORDPRESS_DATABASE_NAME'));/g" wp-config.php && \
+  echo "define('DB_DRIVER', 'pgsql');" >> wp-config.php
