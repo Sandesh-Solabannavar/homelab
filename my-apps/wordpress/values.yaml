@@ -1,52 +1,45 @@
-# replicaCount: 3  # Enable HA with multiple WordPress pods
-
-# persistence:
-#   enabled: true
-#   storageClass: openebs-nfs-rwx  # RWX-enabled storage class
-#   accessModes:
-#     - ReadWriteMany
-#   size: 10Gi
-
-existingSecret: wordpress-admin-secret
-
 mariadb:
-  enabled: false
+  enabled: true
+  architecture: standalone
+  auth:
+    database: wordpress
+    username: wpuser
+    existingSecret: wp-database-secret
+    # The secret must contain:
+    #   - mariadb-password: user password
+    #   - mariadb-root-password: root password
+  primary:
+    persistence:
+      enabled: true
+      storageClass: openebs-hostpath
+      size: 10Gi
 
-externalDatabase:
-  host: wp-db-rw.wordpress.svc.cluster.local
-  port: 5432
-  database: wordpress
-  user: wpuser
-  password: admin460946
-  # existingSecret: wp-database-secret
+wordpressUsername: admin
+wordpressPassword: admin_password
+wordpressEmail: admin@example.com
+wordpressFirstName: Admin
+wordpressLastName: User
+wordpressBlogName: My WordPress Blog
+
+service:
+  type: ClusterIP
 
 ingress:
   enabled: true
   ingressClassName: traefik
   hostname: wordpress.isandeshsol.com
+  tls: true
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-stg
     cert-manager.io/common-name: wordpress.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
-  tls: true
   extraTls:
     - hosts:
         - wordpress.isandeshsol.com
       secretName: wordpress-tls
 
-metrics:
+persistence:
   enabled: true
-
-service:
-  type: ClusterIP
-
-wordpressBlog:
-  debug: true
-
-# Enable PostgreSQL support
-wordpressConfigureCommand: |
-  sed -i "s/define('DB_HOST'.*/define('DB_HOST', getenv('WORDPRESS_DATABASE_HOST'));/g" wp-config.php && \
-  sed -i "s/define('DB_USER'.*/define('DB_USER', getenv('WORDPRESS_DATABASE_USER'));/g" wp-config.php && \
-  sed -i "s/define('DB_PASSWORD'.*/define('DB_PASSWORD', getenv('WORDPRESS_DATABASE_PASSWORD'));/g" wp-config.php && \
-  sed -i "s/define('DB_NAME'.*/define('DB_NAME', getenv('WORDPRESS_DATABASE_NAME'));/g" wp-config.php && \
-  echo "define('DB_DRIVER', 'pgsql');" >> wp-config.php
+  storageClass: openebs-hostpath
+  accessMode: ReadWriteOnce
+  size: 10Gi
