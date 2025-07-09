@@ -14,12 +14,7 @@ mariadb:
       storageClass: openebs-hostpath
       size: 10Gi
 
-wordpressUsername: admin
-wordpressPassword: admin_password
-wordpressEmail: admin@example.com
-wordpressFirstName: Admin
-wordpressLastName: User
-wordpressBlogName: My WordPress Blog
+existingSecret: wordpress-admin-secret
 
 service:
   type: ClusterIP
