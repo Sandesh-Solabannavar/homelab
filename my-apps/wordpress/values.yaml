@@ -41,6 +41,6 @@ wordpressBlog:
 
 persistence:
   enabled: true
-  storageClass: openebs-hostpath
+  storageClass: longhorn
   accessMode: ReadWriteOnce
   size: 10Gi
