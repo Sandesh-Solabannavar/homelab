@@ -1,14 +1,34 @@
 defaultSettings:
   defaultDataPath: "/var/lib/longhorn"
+  defaultReplicaCount: 3
+  defaultDataLocality: disabled
+  replicaSoftAntiAffinity: true
+  concurrentAutomaticEngineUpgradePerNodeLimit: 1
+  backupTarget: ""
+  backupTargetCredentialSecret: ""
+  allowRecurringJobWhileVolumeDetached: true
+  createDefaultDiskLabeledNodes: true
+  defaultLonghornStaticStorageClass: longhorn
+  storageOverProvisioningPercentage: 200
+  storageMinimalAvailablePercentage: 10
+  upgradeChecker: false
+  # Enable RWX volumes (requires NFS client support in nodes)
+  nfsBackupVolumes: true
+  replicaAutoBalance: best_effort
+  orphanAutoDeletion: true
+
 preUpgradeChecker:
   jobEnabled: false
+
 persistence:
   defaultClass: true
   defaultClassReplicaCount: 3
   defaultFsType: ext4
   reclaimPolicy: Retain
+
 ingress:
   enabled: false
+
 service:
   ui:
     # -- Service type for Longhorn UI. (Options: "ClusterIP", "NodePort", "LoadBalancer", "Rancher-Proxy")
