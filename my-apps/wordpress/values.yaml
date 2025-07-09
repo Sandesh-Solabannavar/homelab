@@ -14,6 +14,10 @@ mariadb:
       storageClass: openebs-hostpath
       size: 10Gi
 
+wordpressUsername: admin
+wordpressEmail: admin@isandeshsol.com
+wordpressFirstName: Sandesh
+wordpressLastName: Solabannavar
 existingSecret: wordpress-admin-secret
 
 ingress:
