@@ -6,7 +6,7 @@ resources:
 
 helmCharts:
   - name: n8n
-    repo: https://8gears.github.io/n8n-helm-chart
+    repo: 8gears.container-registry.com/library/n8n
     releaseName: n8n
     namespace: n8n
     version: 1.0.10
