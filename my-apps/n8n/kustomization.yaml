@@ -5,8 +5,8 @@ resources:
   - postgres-cluster.yaml
 
 helmCharts:
-  - name: n8n
-    repo: 8gears.container-registry.com/library/n8n
+  - name: 8gears
+    repo: 8gears.container-registry.com/library
     releaseName: n8n
     namespace: n8n
     version: 1.0.10
