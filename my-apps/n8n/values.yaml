@@ -40,7 +40,6 @@ ingress:
     - hosts:
         - workflow.isandeshsol.com
       secretName: n8n-tls
-
-webhook:
-  mode: queue
-  url: "https://workflow.isandeshsol.com"
+# webhook:
+#   mode: queue
+#   url: "https://workflow.isandeshsol.com"
