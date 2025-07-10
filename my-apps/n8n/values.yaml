@@ -16,8 +16,7 @@ main:
   persistence:
     enabled: true
     type: dynamic
-    accessModes:
-      - ReadWriteOnce
+    accessMode: ReadWriteOnce
     size: 10Gi
     storageClass: openebs-hostpath
 
