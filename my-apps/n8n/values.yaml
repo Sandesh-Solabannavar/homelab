@@ -10,10 +10,10 @@ encryptionKey: ""
 timezone: "Asia/Kolkata"
 
 externalPostgresql:
-  host: "n8n-database-rw.n8n.svc.cluster.local"
+  host: "n8n-database-rw"
+  port: 5432
   username: "n8n"
   database: "n8n-database"
-
   existingSecret: "n8n-secrets"
 
 main:
