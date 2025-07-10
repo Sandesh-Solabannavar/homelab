@@ -9,7 +9,6 @@ spec:
   storage:
     storageClass: openebs-hostpath
     size: 10Gi
-  enablePodMonitor: true
   bootstrap:
     initdb:
       database: n8n
