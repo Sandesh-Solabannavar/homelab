@@ -4,6 +4,8 @@ log:
 db:
   type: postgresdb
 
+existingEncryptionKeySecret: "n8n-secret"
+
 externalPostgresql:
   host: "n8n-db-rw.n8n.svc.cluster.local"
   username: "n8n"
