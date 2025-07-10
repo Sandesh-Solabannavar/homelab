@@ -4,8 +4,8 @@ log:
 db:
   type: postgresdb
 
-# existingEncryptionKeySecret: "n8n-secret"
-encryptionKey: ""
+existingEncryptionKeySecret: "n8n-secret"
+# encryptionKey: ""
 
 timezone: "Asia/Kolkata"
 
@@ -14,7 +14,7 @@ externalPostgresql:
   port: 5432
   username: "n8n"
   database: "n8n-database"
-  existingSecret: "n8n-secrets"
+  existingSecret: "n8n-secret"
 
 main:
   count: 1 # Multiple replicas
