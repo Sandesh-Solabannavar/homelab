@@ -1,7 +1,25 @@
-image:
-  repository: n8nio/n8n
-  pullPolicy: IfNotPresent
-  tag: ""
+log:
+  level: warn
+
+db:
+  type: postgresdb
+
+externalPostgresql:
+  host: "n8n-db-rw.n8n.svc.cluster.local"
+  username: "n8n"
+  database: "n8n"
+
+  existingSecret: "n8n-secrets"
+
+main:
+  count: 3 # Multiple replicas
+  persistence:
+    enabled: true
+    type: dynamic
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+    storageClass: openebs-hostpath
 
 ingress:
   enabled: true
@@ -20,45 +38,6 @@ ingress:
         - workflow.isandeshsol.com
       secretName: n8n-tls
 
-main:
-  config:
-    n8n:
-      db:
-        type: postgresdb
-        postgresdb:
-          host: n8n-db-rw.n8n.svc.cluster.local
-          port: 5432
-          database: n8n
-          user: n8n
-
-  extraEnv:
-    - secretRef:
-        name: n8n-secrets
-
-  persistence:
-    enabled: true
-    type: dynamic
-    accessModes:
-      - ReadWriteOnce
-    size: 10Gi
-    storageClass: openebs-hostpath
-
-  replicaCount: 1
-
-  service:
-    type: ClusterIP
-    port: 80
-
-  resources:
-    requests:
-      cpu: 100m
-      memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
-
-worker:
-  enabled: false
-
 webhook:
-  enabled: false
+  mode: queue
+  url: "https://workflow.isandeshsol.com"
