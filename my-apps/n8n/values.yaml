@@ -1,0 +1,64 @@
+image:
+  repository: n8nio/n8n
+  pullPolicy: IfNotPresent
+  tag: ""
+
+ingress:
+  enabled: true
+  className: traefik
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+    cert-manager.io/common-name: workflow.isandeshsol.com
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  hosts:
+    - host: workflow.isandeshsol.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - workflow.isandeshsol.com
+      secretName: n8n-tls
+
+main:
+  config:
+    n8n:
+      db:
+        type: postgresdb
+        postgresdb:
+          host: n8n-db-rw.n8n.svc.cluster.local
+          port: 5432
+          database: n8n
+          user: n8n
+
+  extraEnv:
+    - secretRef:
+        name: n8n-secrets
+
+  persistence:
+    enabled: true
+    type: dynamic
+    accessModes:
+      - ReadWriteOnce
+    size: 10Gi
+    storageClass: openebs-hostpath
+
+  replicaCount: 1
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+worker:
+  enabled: false
+
+webhook:
+  enabled: false
