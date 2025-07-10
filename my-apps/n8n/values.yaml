@@ -12,10 +12,9 @@ externalPostgresql:
   existingSecret: "n8n-secrets"
 
 main:
-  count: 3 # Multiple replicas
+  count: 1 # Multiple replicas
   persistence:
     enabled: true
-    type: dynamic
     accessMode: ReadWriteOnce
     size: 10Gi
     storageClass: openebs-hostpath
