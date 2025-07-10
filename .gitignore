@@ -11,4 +11,3 @@ infrastructure/controllers/argocd/charts/*
 tunnel-creds.json
 *.deb
 secrets/*
-/my-apps/n8n/*
