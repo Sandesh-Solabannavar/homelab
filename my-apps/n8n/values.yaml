@@ -1,0 +1,46 @@
+log:
+  level: warn
+
+db:
+  type: postgresdb
+
+existingEncryptionKeySecret: "n8n-secret"
+# encryptionKey: ""
+
+timezone: "Asia/Kolkata"
+
+externalPostgresql:
+  host: "n8n-database-rw"
+  port: 5432
+  username: "n8n"
+  database: "n8n-database"
+  existingSecret: "n8n-secret"
+
+main:
+  count: 1 # Multiple replicas
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: longhorn
+
+ingress:
+  enabled: true
+  className: traefik
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+    cert-manager.io/common-name: workflow.isandeshsol.com
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  hosts:
+    - host: workflow.isandeshsol.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - workflow.isandeshsol.com
+      secretName: n8n-tls
+
+webhook:
+  mode: queue
+  url: "https://workflow.isandeshsol.com"
