@@ -23,15 +23,15 @@ existingSecret: wordpress-admin-secret
 ingress:
   enabled: true
   ingressClassName: traefik
-  hostname: wordpress.isandeshsol.com
+  hostname: blog.isandeshsol.com
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-stg
-    cert-manager.io/common-name: wordpress.isandeshsol.com
+    cert-manager.io/common-name: blog.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
   tls: true
   extraTls:
     - hosts:
-        - wordpress.isandeshsol.com
+        - blog.isandeshsol.com
       secretName: wordpress-tls
 
 metrics:
