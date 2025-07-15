@@ -2,8 +2,8 @@ server:
   dev:
     enabled: true
 
-  service:
-    enabled: true
+  # service:
+  #   enabled: true
 
   # ingress:
   #   enabled: true
@@ -24,14 +24,6 @@ server:
   #     - secretName: vault-tls
   #       hosts:
   #         - vault.isandeshsol.com
-
-# Enable Vault Agent Injector Webhook
-injector:
-  enabled: false
-
-# Clean up extra features
-csi:
-  enabled: false
 
 # Expose the Vault UI (optional)
 ui:
