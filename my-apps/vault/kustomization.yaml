@@ -6,5 +6,5 @@ helmCharts:
     releaseName: vault
     repo: https://helm.releases.hashicorp.com
     namespace: vault
-    version: 1.13.2
+    version: 0.30.0
     valuesFile: values.yaml
