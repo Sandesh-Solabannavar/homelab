@@ -4,6 +4,11 @@ global:
   # will enable or disable all the components within this chart by default.
   enabled: true
 
+injector:
+  # True if you want to enable vault agent injection.
+  # @default: global.enabled
+  enabled: true
+
 server:
   # If true, or "-" with global.enabled true, Vault server will be installed.
   # See vault.mode in _helpers.tpl for implementation details.
