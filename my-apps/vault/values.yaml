@@ -9,33 +9,33 @@ server:
     # from Kubernetes to access Vault pods.
     # If deployment is on OpenShift, the following block is ignored.
     # In order to expose the service, use the route section below
-    ingress:
-      enabled: true
-      annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-stg
-        cert-manager.io/common-name: vault.isandeshsol.com
-        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    # ingress:
+    #   enabled: true
+    #   annotations:
+    #     cert-manager.io/cluster-issuer: letsencrypt-stg
+    #     cert-manager.io/common-name: vault.isandeshsol.com
+    #     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 
-      # Optionally use ingressClassName instead of deprecated annotation.
-      # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#deprecated-annotation
-      ingressClassName: "traefik"
+    #   # Optionally use ingressClassName instead of deprecated annotation.
+    #   # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#deprecated-annotation
+    #   ingressClassName: "traefik"
 
-      # As of Kubernetes 1.19, all Ingress Paths must have a pathType configured. The default value below should be sufficient in most cases.
-      # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types for other possible values.
-      pathType: Prefix
+    #   # As of Kubernetes 1.19, all Ingress Paths must have a pathType configured. The default value below should be sufficient in most cases.
+    #   # See: https://kubernetes.io/docs/concepts/services-networking/ingress/#path-types for other possible values.
+    #   pathType: Prefix
 
-      # When HA mode is enabled and K8s service registration is being used,
-      # configure the ingress to point to the Vault active service.
-      activeService: true
-      hosts:
-        - host: vault.isandeshsol.com
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - secretName: vault-tls
-          hosts:
-            - vault.isandeshsol.com
+    #   # When HA mode is enabled and K8s service registration is being used,
+    #   # configure the ingress to point to the Vault active service.
+    #   activeService: true
+    #   hosts:
+    #     - host: vault.isandeshsol.com
+    #       paths:
+    #         - path: /
+    #           pathType: Prefix
+    #   tls:
+    #     - secretName: vault-tls
+    #       hosts:
+    #         - vault.isandeshsol.com
 
 ui:
   enabled: true
