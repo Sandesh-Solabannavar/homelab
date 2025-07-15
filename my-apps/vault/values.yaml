@@ -26,5 +26,5 @@ server:
 # Expose the Vault UI (optional)
 ui:
   enabled: true
-  serviceType: "ClusterIP" # Change to LoadBalancer if needed
-  # loadBalancerIP: 192.168.1.85 # If using MetalLB
+  serviceType: "LoadBalancer"
+  loadBalancerIP: 192.168.1.85 # If using MetalLB
