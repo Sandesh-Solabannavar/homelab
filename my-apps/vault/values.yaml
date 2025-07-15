@@ -1,0 +1,47 @@
+server:
+  dev:
+    enabled: true
+
+  # Allow access to /v1/ paths, used by injector/webhook
+  extraArgs:
+    - "-dev-listen-address=0.0.0.0:8200"
+
+  service:
+    enabled: true
+
+  # Service account used by the Vault server and Injector
+  serviceAccount:
+    create: true
+    name: vault
+
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      traefik.ingress.kubernetes.io/router.tls: "true"
+      cert-manager.io/cluster-issuer: letsencrypt-stg
+      cert-manager.io/common-name: vault.isandeshsol.com
+      # Optional: External DNS
+      # external-dns.alpha.kubernetes.io/hostname: vault.example.com
+    hosts:
+      - host: vault.isandeshsol.com
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: vault-tls
+        hosts:
+          - vault.isandeshsol.com
+
+# Enable Vault Agent Injector Webhook
+injector:
+  enabled: true
+
+# Clean up extra features
+csi:
+  enabled: false
+
+# Expose the Vault UI (optional)
+ui:
+  enabled: true
