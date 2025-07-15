@@ -3,8 +3,7 @@ server:
     enabled: true
 
   # Allow access to /v1/ paths, used by injector/webhook
-  extraArgs:
-    - "-dev-listen-address=0.0.0.0:8200"
+  extraArgs: "-dev-listen-address=0.0.0.0:8200"
 
   service:
     enabled: true
