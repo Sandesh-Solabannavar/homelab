@@ -17,6 +17,7 @@ server:
       - host: vault.isandeshsol.com
         paths:
           - path: /
+            pathType: Prefix
     tls:
       - secretName: vault-tls
         hosts:
