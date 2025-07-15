@@ -5,6 +5,7 @@ namespace: vault
 
 resources:
   - namespace.yaml
+  - ingress.yaml
 
 helmCharts:
   - name: vault
