@@ -2,16 +2,8 @@ server:
   dev:
     enabled: true
 
-  # Allow access to /v1/ paths, used by injector/webhook
-  extraArgs: "-dev-listen-address=0.0.0.0:8200"
-
   service:
     enabled: true
-
-  # Service account used by the Vault server and Injector
-  serviceAccount:
-    create: true
-    name: vault
 
   ingress:
     enabled: true
@@ -35,7 +27,7 @@ server:
 
 # Enable Vault Agent Injector Webhook
 injector:
-  enabled: true
+  enabled: false
 
 # Clean up extra features
 csi:
