@@ -15,9 +15,6 @@ server:
       cert-manager.io/common-name: vault.isandeshsol.com
     hosts:
       - host: vault.isandeshsol.com
-        paths:
-          - path: /
-            pathType: Prefix
     tls:
       - secretName: vault-tls
         hosts:
