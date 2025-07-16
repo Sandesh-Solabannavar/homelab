@@ -10,6 +10,25 @@ This repository manages a homelab Kubernetes cluster using GitOps principles. It
 
 ---
 
+## Architecture Overview
+
+```mermaid
+graph TD
+    A[Kubernetes Cluster] --> B[ArgoCD]
+    B --> C[Infrastructure]
+    B --> D[Monitoring]
+    B --> E[Applications]
+    C --> F[Networking]
+    C --> G[Storage]
+    C --> H[RBAC]
+    D --> I[Prometheus]
+    D --> J[Loki]
+    D --> K[Grafana]
+    E --> L[Vault]
+    E --> M[n8n]
+    E --> N[WordPress]
+```
+
 ## Repository Structure
 
 - **infrastructure/**  
@@ -35,43 +54,9 @@ This repository manages a homelab Kubernetes cluster using GitOps principles. It
 | [Loki](https://github.com/grafana/loki) | Log aggregation system. |
 | [Grafana](https://github.com/grafana/grafana) | Visualization and dashboarding for metrics/logs. |
 | [ApplicationSet](https://argo-cd.readthedocs.io/en/stable/operator-manual/applicationset/) | Automated multi-app deployments for ArgoCD. |
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- A running Kubernetes cluster (bare metal, k3s, or kubeadm recommended for homelab).
-- `kubectl` configured for your cluster.
-- [Helm](https://helm.sh/) installed.
-- Cloudflare account and API token for DNS and tunnel integration.
-
-### Bootstrap Process
-
-1. **Install CRDs and ArgoCD**
-   ```sh
-   kubectl apply -k infrastructure/controllers/argocd/
-   ```
-
-2. **Configure Secrets**
-   - Add Cloudflare credentials for Cloudflared and Cert-Manager DNS01 challenge.
-   - Store secrets as Kubernetes `Secret` resources (do not commit secrets to git).
-
-3. **Apply Infrastructure**
-   ```sh
-   kubectl apply -k infrastructure/
-   ```
-
-4. **Apply Monitoring Stack**
-   ```sh
-   kubectl apply -k monitoring/
-   ```
-
-5. **Deploy Applications**
-   ```sh
-   kubectl apply -k my-apps/
-   ```
+| [Vault](https://www.vaultproject.io/) | Secrets management with Kubernetes auth integration. |
+| [n8n](https://n8n.io/) | Workflow automation platform with 300+ integrations. |
+| [WordPress](https://wordpress.org/) | Content management system with persistent storage. |
 
 ---
 
