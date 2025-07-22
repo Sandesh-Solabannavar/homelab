@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: amul-stock
+  namespace: amul-stock
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: amul-stock
+  template:
+    metadata:
+      labels:
+        app: amul-stock
+    spec:
+      containers:
+        - name: amul-stock
+          image: ghcr.io/sandesh-solabannavar/amul-stock:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          env:
+            - name: PORT
+              valueFrom:
+                secretKeyRef:
+                  name: amul-stock-secret
+                  key: PORT
+            - name: NODE_ENV
+              valueFrom:
+                secretKeyRef:
+                  name: amul-stock-secret
+                  key: NODE_ENV
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: amul-stock-secret
+                  key: MONGODB_URI
+            - name: EMAIL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: amul-stock-secret
+                  key: EMAIL_USER
+            - name: EMAIL_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: amul-stock-secret
+                  key: EMAIL_PASS
+            - name: TELEGRAM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: amul-stock-secret
+                  key: TELEGRAM_BOT_TOKEN
