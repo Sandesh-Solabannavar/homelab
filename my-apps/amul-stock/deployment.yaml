@@ -16,7 +16,7 @@ spec:
       containers:
         - name: amul-stock
           image: ghcr.io/sandesh-solabannavar/amul-stock:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
           resources:
