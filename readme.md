@@ -27,6 +27,7 @@ graph TD
     E --> L[Vault]
     E --> M[n8n]
     E --> N[WordPress]
+    E --> O[Portfolio]
 ```
 
 ## Repository Structure
@@ -57,7 +58,7 @@ graph TD
 | [Vault](https://www.vaultproject.io/) | Secrets management with Kubernetes auth integration. |
 | [n8n](https://n8n.io/) | Workflow automation platform with 300+ integrations. |
 | [WordPress](https://wordpress.org/) | Content management system with persistent storage. |
-
+| [Portfolio](https://portfolio.isandeshsol.com/) | Personal portfolio website developed with Hugo. |
 ---
 
 ## Security Notes
@@ -94,7 +95,10 @@ Contributions are welcome! Please open issues or pull requests for improvements,
 - [Prometheus](https://prometheus.io/)
 - [Loki](https://grafana.com/oss/loki/)
 - [Grafana](https://grafana.com/)
-
+- [Vault](https://www.vaultproject.io/)
+- [n8n](https://n8n.io/)
+- [WordPress](https://wordpress.org/)
+- [Hugo](https://gohugo.io/)
 ---
 
 ## License
