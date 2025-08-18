@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: dataflow
-          image: ghcr.io/sandesh-solabannavar/dataflow:4c6dd16
+          image: ghcr.io/sandesh-solabannavar/dataflow:741a675
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
