@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: dataflow
-          image: ghcr.io/sandesh-solabannavar/dataflow:719a11a
+          image: ghcr.io/sandesh-solabannavar/dataflow:8b2f7bf
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
@@ -28,6 +28,9 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
+          env:
+            - name: NODE_ENV
+              value: "production"
           envFrom:
             - secretRef:
                 name: supabase-secrets
