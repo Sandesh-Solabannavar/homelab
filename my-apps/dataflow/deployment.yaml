@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataflow
+  namespace: dataflow
+  labels:
+    app: dataflow
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dataflow
+  template:
+    metadata:
+      labels:
+        app: dataflow
+    spec:
+      containers:
+        - name: dataflow
+          image: ghcr.io/sandesh-solabannavar/dataflow:c8fdbe8
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          env:
+            - name: NEXT_PUBLIC_SUPABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: supabase-secrets
+                  key: NEXT_PUBLIC_SUPABASE_URL
+            - name: NEXT_PUBLIC_SUPABASE_ANON_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: supabase-secrets
+                  key: NEXT_PUBLIC_SUPABASE_ANON_KEY
