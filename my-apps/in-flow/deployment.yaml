@@ -21,13 +21,6 @@ spec:
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
-          resources:
-            requests:
-              memory: "512Mi"
-              cpu: "500m"
-            limits:
-              memory: "1024Mi"
-              cpu: "800m"
           envFrom:
             - secretRef:
                 name: inflow-app-secrets
