@@ -52,3 +52,5 @@ spec:
           envFrom:
             - secretRef:
                 name: inflow-app-secrets
+      imagePullSecrets:
+        - name: ghcr-login-secret
