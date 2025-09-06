@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: inflow
-          image: ghcr.io/sandesh-solabannavar/in_flow:d9078a4 # Fixed duplicate ghcr.io
+          image: ghcr.io/sandesh-solabannavar/in_flow:8a11100 # Fixed duplicate ghcr.io
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
