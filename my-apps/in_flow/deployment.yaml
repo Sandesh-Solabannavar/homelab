@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inflow
+  namespace: inflow
+  labels:
+    app: inflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inflow
+  template:
+    metadata:
+      labels:
+        app: inflow
+    spec:
+      containers:
+        - name: inflow
+          image: ghcr.io/sandesh-solabannavar/in_flow:latest # Fixed duplicate ghcr.io
+          imagePullPolicy: Always # Important for using remote images
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+          envFrom:
+            - secretRef:
+                name: inflow-app-secrets
