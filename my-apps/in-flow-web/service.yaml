@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: inflow
+  name: inflow-web
   namespace: inflow
   labels:
-    app: inflow
+    app: inflow-web
 spec:
   selector:
-    app: inflow
+    app: inflow-web
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 3001
+      targetPort: 3001

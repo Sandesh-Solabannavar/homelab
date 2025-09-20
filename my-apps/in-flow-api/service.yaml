@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: inflow-api
+  namespace: inflow
+  labels:
+    app: inflow-api
+spec:
+  selector:
+    app: inflow-api
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

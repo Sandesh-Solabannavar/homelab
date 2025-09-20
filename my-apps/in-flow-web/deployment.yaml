@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: inflow
+  name: inflow-web
   namespace: inflow
   labels:
-    app: inflow
+    app: inflow-web
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: inflow
+      app: inflow-web
   template:
     metadata:
       labels:
-        app: inflow
+        app: inflow-web
     spec:
       containers:
-        - name: inflow
-          image: ghcr.io/sandesh-solabannavar/in_flow:e2441ab # Fixed duplicate ghcr.io
+        - name: inflow-web
+          image: ghcr.io/sandesh-solabannavar/data_flow-web:dev-93140e1
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
-            - containerPort: 3000
-          envFrom:
-            - secretRef:
-                name: inflow-app-secrets
+            - containerPort: 3001
+          env:
+            - name: NEXT_PUBLIC_SERVER_URL
+              value: http://inflow-api:3000
       imagePullSecrets:
         - name: ghcr-login-secret
