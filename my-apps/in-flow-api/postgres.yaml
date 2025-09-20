@@ -11,7 +11,7 @@ spec:
     size: 10Gi
   bootstrap:
     initdb:
-      database: dataflow
+      database: inflow
       owner: inflow
       secret:
         name: inflow-db-secret
