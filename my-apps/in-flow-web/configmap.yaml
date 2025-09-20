@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
-namespace: inflow
 metadata:
   name: inflow-web-config
+  namespace: inflow
 data:
   NEXT_PUBLIC_API_BASE_URL: "https://inflow-api.isandeshsol.com"
   NODE_ENV: "production"
