@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: inflow-api
+  namespace: inflow
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-stg
+    cert-manager.io/common-name: inflow-api.isandeshsol.com
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: inflow-api.isandeshsol.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: inflow-api
+                port:
+                  number: 3000
