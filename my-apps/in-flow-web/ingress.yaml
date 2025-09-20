@@ -17,6 +17,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: inflow
+                name: inflow-web
                 port:
-                  number: 3000
+                  number: 3001
