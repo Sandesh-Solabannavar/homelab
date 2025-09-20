@@ -24,7 +24,7 @@ spec:
           env:
             - name: NEXT_PUBLIC_SERVER_URL
               value: https://inflow-api.isandeshsol.com
-            - name: NEXT_PUBLIC_API_URL
+            - name: NEXT_PUBLIC_API_BASE_URL
               value: https://inflow-api.isandeshsol.com
       imagePullSecrets:
         - name: ghcr-login-secret
