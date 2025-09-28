@@ -4,7 +4,7 @@ metadata:
   name: zoom-info-database
   namespace: zoom-info
 spec:
-  instances: 3
+  instances: 1
   imageName: ghcr.io/cloudnative-pg/postgresql:16
   storage:
     storageClass: longhorn
