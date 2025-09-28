@@ -1,0 +1,17 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: zoom-info-database
+  namespace: zoom-info
+spec:
+  instances: 3
+  imageName: ghcr.io/cloudnative-pg/postgresql:16
+  storage:
+    storageClass: longhorn
+    size: 75Gi
+  bootstrap:
+    initdb:
+      database: zoom-info
+      owner: zoom-info
+      secret:
+        name: zoom-info-db-secret
