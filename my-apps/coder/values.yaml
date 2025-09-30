@@ -21,8 +21,8 @@ coder:
           key: url
 
     # This env enables the Prometheus metrics endpoint.
-    - name: CODER_PROMETHEUS_ADDRESS
-      value: "false"
+    # - name: CODER_PROMETHEUS_ADDRESS
+    #   value: "false"
     # For production deployments, we recommend configuring your own GitHub
     # OAuth2 provider and disabling the default one.
     - name: CODER_OAUTH2_GITHUB_DEFAULT_PROVIDER_ENABLE
