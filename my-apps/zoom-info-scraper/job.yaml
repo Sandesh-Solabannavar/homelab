@@ -28,4 +28,6 @@ spec:
           limits:
             cpu: "500m"
             memory: "512Mi"
+      imagePullSecrets:
+        - name: ghcr-login-secret
   ttlSecondsAfterFinished: 3600
