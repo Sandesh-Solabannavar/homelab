@@ -6,7 +6,7 @@ metadata:
 spec:
   parallelism: 2        # Conservative: 6 pods for safety margin
   completions: 20       # Adjusted for lower parallelism
-  backoffLimit: 3
+  backoffLimit: 5
   template:
     spec:
       restartPolicy: OnFailure
