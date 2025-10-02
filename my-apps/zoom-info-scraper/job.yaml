@@ -5,7 +5,7 @@ metadata:
   namespace: zoom-info
 spec:
   parallelism: 2        # Conservative: 3 pods for safety margin
-  completions: 10       # Adjusted for lower parallelism
+  completions: 5       # Adjusted for lower parallelism
   backoffLimit: 3
   template:
     spec:
