@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pincode-processor
+spec:
+  parallelism: 6        # Conservative: 6 pods for safety margin
+  completions: 20       # Adjusted for lower parallelism
+  backoffLimit: 3
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: processor
+        image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:0931335
+        env:
+        - name: REDIS_HOST
+          value: "redis-service"
+        - name: BATCH_SIZE
+          value: "10"
+        envFrom:
+          - secretRef:
+              name: zoom-info-scraper-secrets
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+  ttlSecondsAfterFinished: 3600
