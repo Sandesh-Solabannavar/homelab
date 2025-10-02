@@ -4,4 +4,4 @@ resources:
   - namespace.yaml
   - postgres.yaml
   - deployment.yaml
-  - deployment-reverse.yaml
+  # - deployment-reverse.yaml
