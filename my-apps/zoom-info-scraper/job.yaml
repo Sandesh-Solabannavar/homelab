@@ -4,7 +4,7 @@ metadata:
   name: pincode-processor
   namespace: zoom-info
 spec:
-  parallelism: 6        # Conservative: 6 pods for safety margin
+  parallelism: 2        # Conservative: 6 pods for safety margin
   completions: 20       # Adjusted for lower parallelism
   backoffLimit: 3
   template:
@@ -12,7 +12,7 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: processor
-        image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:0931335
+        image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:225294a
         env:
         - name: REDIS_HOST
           value: "redis-service"
