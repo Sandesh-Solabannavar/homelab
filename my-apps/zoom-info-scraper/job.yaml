@@ -2,6 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: pincode-processor
+  namespace: zoom-info
 spec:
   parallelism: 6        # Conservative: 6 pods for safety margin
   completions: 20       # Adjusted for lower parallelism
