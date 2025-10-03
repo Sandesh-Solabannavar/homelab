@@ -12,7 +12,7 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: processor
-        image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:e846501
+        image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:a0aea94
         env:
         - name: REDIS_HOST
           value: "redis-service"
