@@ -5,5 +5,5 @@ resources:
   - postgres.yaml
   - deployment.yaml
   - deployment-reverse.yaml
-  - redis-deployment.yaml
-  - job.yaml
+  # - redis-deployment.yaml
+  # - job.yaml
