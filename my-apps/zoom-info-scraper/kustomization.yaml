@@ -5,3 +5,4 @@ resources:
   - postgres.yaml
   - deployment.yaml
   - deployment-reverse.yaml
+  - deployment-gb.yaml
