@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoom-info-scraper-canada
+  namespace: zoom-info
+  labels:
+    app: zoom-info-scraper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zoom-info-scraper-canada
+  template:
+    metadata:
+      labels:
+        app: zoom-info-scraper-canada
+    spec:
+      containers:
+        - name: zoom-info-scraper-canada
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:25d4612
+          imagePullPolicy: IfNotPresent # Important for using remote images
+          ports:
+            - containerPort: 3000
+          env:
+            - name: COUNTRY
+              value: CA
+          envFrom:
+            - secretRef:
+                name: zoom-info-scraper-secrets
+      imagePullSecrets:
+        - name: ghcr-login-secret
