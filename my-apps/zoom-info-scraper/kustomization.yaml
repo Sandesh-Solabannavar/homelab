@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
   - postgres.yaml
   - deployment.yaml
-  - deployment-reverse.yaml
-  # - deployment-gb.yaml
+  # - deployment-reverse.yaml
+  - deployment-gb.yaml
   - deployment-canada.yaml
   # - deployment-germany.yaml
