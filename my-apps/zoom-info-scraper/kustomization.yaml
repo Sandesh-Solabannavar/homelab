@@ -8,3 +8,4 @@ resources:
   # - deployment-gb.yaml
   - deployment-canada.yaml
   # - deployment-germany.yaml
+  - deployment-history.yaml
