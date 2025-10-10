@@ -6,5 +6,5 @@ helmCharts:
     repo: https://charts.bitnami.com/bitnami
     releaseName: wordpress
     namespace: wordpress
-    version: 25.0.1
+    version: 27.0.7
     valuesFile: values.yaml
