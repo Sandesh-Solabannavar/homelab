@@ -17,13 +17,15 @@ spec:
     spec:
       containers:
         - name: zoom-info-scraper-gb
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:fc79df5
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:8c15231
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
             - name: COUNTRY
               value: GB
+            - name: METHOD
+              value: main
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
