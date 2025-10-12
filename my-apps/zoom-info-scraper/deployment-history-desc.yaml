@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-canada
+  name: zoom-info-scraper-history-desc
   namespace: zoom-info
   labels:
-    app: zoom-info-scraper
+    app: zoom-info-scraper-history-desc
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-canada
+      app: zoom-info-scraper-history-desc
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-canada
+        app: zoom-info-scraper-history-desc
     spec:
       containers:
-        - name: zoom-info-scraper-canada
+        - name: zoom-info-scraper-history-desc
           image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:e1cb195
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
             - name: COUNTRY
-              value: CA
+              value: US
             - name: METHOD
-              value: main
+              value: processEmploymentHistoryCompaniesData
             - name: ORDER
-              value: asc
+              value: desc
             - name: LIMIT
               value: "100"
           envFrom:
