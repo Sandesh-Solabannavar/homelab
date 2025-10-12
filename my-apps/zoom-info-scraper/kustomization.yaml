@@ -9,3 +9,4 @@ resources:
   - deployment-canada.yaml
   # - deployment-germany.yaml
   - deployment-history.yaml
+  - deployment-history-desc.yaml
