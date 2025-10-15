@@ -6,7 +6,7 @@ resources:
   # - deployment.yaml
   # - deployment-reverse.yaml
   # - deployment-gb.yaml
-  # - deployment-canada.yaml
+  - deployment-canada.yaml
   # - deployment-germany.yaml
-  # - deployment-history.yaml
-  # - deployment-history-desc.yaml
+  - deployment-history.yaml
+  - deployment-history-desc.yaml
