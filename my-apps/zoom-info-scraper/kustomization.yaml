@@ -10,4 +10,4 @@ resources:
   # - deployment-germany.yaml
   - deployment-history.yaml
   - deployment-history-desc.yaml
-  # - deployment-copy.yaml
+  - deployment-copy.yaml
