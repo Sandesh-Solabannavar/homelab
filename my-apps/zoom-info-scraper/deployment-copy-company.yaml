@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-copy
+  name: zoom-info-scraper-copy-company
   namespace: zoom-info
   labels:
     app: zoom-info-scraper
@@ -9,14 +9,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-copy
+      app: zoom-info-scraper-copy-company
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-copy
+        app: zoom-info-scraper-copy-company
     spec:
       containers:
-        - name: zoom-info-scraper-copy
+        - name: zoom-info-scraper-copy-company
           image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:3eb9791
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
@@ -25,7 +25,7 @@ spec:
             - name: COUNTRY
               value: CA
             - name: METHOD
-              value: copyData
+              value: processCompanyCopy
             - name: ORDER
               value: asc
             - name: LIMIT
