@@ -3,10 +3,10 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - postgres.yaml
-  # - deployment.yaml
+  - deployment.yaml
   # - deployment-reverse.yaml
   # - deployment-gb.yaml
-  - deployment-canada.yaml
+  # - deployment-canada.yaml
   # - deployment-germany.yaml
   - deployment-history.yaml
   - deployment-history-desc.yaml
