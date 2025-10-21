@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: inflow-web
-          image: ghcr.io/sandesh-solabannavar/data_flow-web:dev-c8251bc
+          image: ghcr.io/sandesh-solabannavar/data_flow-web:dev-3d2bb79
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3001
