@@ -1,35 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-reverse
+  name: zoom-info-scraper-copy-person
   namespace: zoom-info
   labels:
-    app: zoom-info-scraper-reverse
+    app: zoom-info-scraper
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-reverse
+      app: zoom-info-scraper-copy-person
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-reverse
+        app: zoom-info-scraper-copy-person
     spec:
       containers:
-        - name: zoom-info-scraper-reverse
+        - name: zoom-info-scraper-copy-person
           image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:af25ba8
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
             - name: COUNTRY
-              value: US
+              value: CA
             - name: METHOD
-              value: main
+              value: copyPeople
             - name: ORDER
-              value: desc
+              value: asc
             - name: LIMIT
               value: "100"
+            - name: CONTINUE
+              value: "true"
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
