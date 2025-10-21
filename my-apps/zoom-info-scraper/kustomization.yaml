@@ -12,3 +12,4 @@ resources:
   - deployment-history-desc.yaml
   - deployment-copy.yaml
   - deployment-copy-company.yaml
+  - deployment-copy-person.yaml
