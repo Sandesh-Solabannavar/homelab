@@ -8,7 +8,7 @@ spec:
   imageName: ghcr.io/cloudnative-pg/postgresql:16
   storage:
     storageClass: longhorn
-    size: 130Gi
+    size: 120Gi
   bootstrap:
     initdb:
       database: zoom-info
