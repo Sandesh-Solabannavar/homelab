@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-domain
+  name: zoom-info-scraper-ollama-desc
   namespace: zoom-info
   labels:
     app: zoom-info-scraper
@@ -9,15 +9,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-domain
+      app: zoom-info-scraper-ollama-desc
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-domain
+        app: zoom-info-scraper-ollama-desc
     spec:
       containers:
-        - name: zoom-info-scraper-domain
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:1b4e7a6
+        - name: zoom-info-scraper-ollama-desc
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:78b95f8
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
@@ -25,9 +25,9 @@ spec:
             - name: COUNTRY
               value: US
             - name: METHOD
-              value: updateDomain
+              value: aiDomain
             - name: ORDER
-              value: asc
+              value: desc
             - name: LIMIT
               value: "100"
             - name: CONTINUE

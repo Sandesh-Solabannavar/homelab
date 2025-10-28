@@ -13,5 +13,5 @@ resources:
   - deployment-copy.yaml
   - deployment-copy-company.yaml
   # - deployment-copy-person.yaml
-  # - deployment-domain.yaml
+  - deployment-ollama-desc.yaml
   - deployment-ollama.yaml
