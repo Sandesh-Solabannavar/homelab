@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoom-info-scraper-ollama
+  namespace: zoom-info
+  labels:
+    app: zoom-info-scraper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zoom-info-scraper-ollama
+  template:
+    metadata:
+      labels:
+        app: zoom-info-scraper-ollama
+    spec:
+      containers:
+        - name: zoom-info-scraper-ollama
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:451b73f
+          imagePullPolicy: IfNotPresent # Important for using remote images
+          ports:
+            - containerPort: 3000
+          env:
+            - name: COUNTRY
+              value: US
+            - name: METHOD
+              value: aiDomain
+            - name: ORDER
+              value: asc
+            - name: LIMIT
+              value: "100"
+            - name: CONTINUE
+              value: "true"
+          envFrom:
+            - secretRef:
+                name: zoom-info-scraper-secrets
+      imagePullSecrets:
+        - name: ghcr-login-secret
