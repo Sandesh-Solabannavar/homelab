@@ -15,5 +15,5 @@ resources:
   # - deployment-copy-person.yaml
   - deployment-ollama-desc.yaml
   - deployment-ollama.yaml
-  - deployment-domain-scraping.yaml
-  - deployment-domain-scraping-desc.yaml
+  # - deployment-domain-scraping.yaml
+  # - deployment-domain-scraping-desc.yaml
