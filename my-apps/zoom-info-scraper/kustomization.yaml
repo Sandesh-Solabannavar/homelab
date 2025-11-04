@@ -10,8 +10,8 @@ resources:
   # - deployment-germany.yaml
   - deployment-history.yaml
   - deployment-history-desc.yaml
-  - deployment-copy.yaml
-  - deployment-copy-company.yaml
+  # - deployment-copy.yaml
+  # - deployment-copy-company.yaml
   # - deployment-copy-person.yaml
   # - deployment-ollama-desc.yaml
   # - deployment-ollama.yaml
