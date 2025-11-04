@@ -13,8 +13,8 @@ resources:
   - deployment-copy.yaml
   - deployment-copy-company.yaml
   # - deployment-copy-person.yaml
-  - deployment-ollama-desc.yaml
-  - deployment-ollama.yaml
+  # - deployment-ollama-desc.yaml
+  # - deployment-ollama.yaml
   # - deployment-domain-scraping.yaml
   # - deployment-domain-scraping-desc.yaml
   - deployment-company-update.yaml
