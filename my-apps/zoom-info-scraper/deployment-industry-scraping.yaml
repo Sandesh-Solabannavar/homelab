@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-domain
+  name: zoom-info-scraper-industry
   namespace: zoom-info
   labels:
     app: zoom-info-scraper
@@ -9,29 +9,25 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-domain
+      app: zoom-info-scraper-industry
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-domain
+        app: zoom-info-scraper-industry
     spec:
       containers:
-        - name: zoom-info-scraper-domain
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:1cb4c3c
+        - name: zoom-info-scraper-industry
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:d8162db
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
-            - name: COUNTRY
-              value: US
+            - name: INDUSTRY
+              value: software.crm
             - name: METHOD
-              value: updateDomain
-            - name: ORDER
-              value: asc
-            - name: LIMIT
-              value: "200"
-            - name: CONTINUE
-              value: "true"
+              value: scrapeByIndustryLocation
+            - name: CONTINENT
+              value: Asia
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
