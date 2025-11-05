@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - deployment-history.yaml
-  - deployment-history-desc.yaml
   - deployment-industry-scraping.yaml
   - deployment-company-update.yaml
 
@@ -20,3 +19,4 @@ resources:
   # - deployment-ollama-desc.yaml
   # - deployment-ollama.yaml
   # - deployment-domain-scraping-desc.yaml
+  # - deployment-history-desc.yaml
