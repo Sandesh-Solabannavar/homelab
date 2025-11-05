@@ -2,20 +2,21 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - namespace.yaml
+  # - deployment-history.yaml
+  # - deployment-history-desc.yaml
+  # - deployment-industry-scraping.yaml
+  # - deployment-company-update.yaml
+
+  # - deployment-company-update-desc.yaml
   # - postgres.yaml
   # - deployment.yaml
   # - deployment-reverse.yaml
   # - deployment-gb.yaml
   # - deployment-canada.yaml
   # - deployment-germany.yaml
-  - deployment-history.yaml
-  - deployment-history-desc.yaml
   # - deployment-copy.yaml
   # - deployment-copy-company.yaml
   # - deployment-copy-person.yaml
   # - deployment-ollama-desc.yaml
   # - deployment-ollama.yaml
-  - deployment-industry-scraping.yaml
   # - deployment-domain-scraping-desc.yaml
-  - deployment-company-update.yaml
-  # - deployment-company-update-desc.yaml
