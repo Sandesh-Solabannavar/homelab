@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
   # - deployment-history.yaml
   - deployment-industry-scraping.yaml
-  # - deployment-company-update.yaml
+  - deployment-company-update.yaml
 
   # - deployment-company-update-desc.yaml
   # - postgres.yaml
