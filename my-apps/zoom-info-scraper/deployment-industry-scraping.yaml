@@ -26,8 +26,8 @@ spec:
               value: software.crm
             - name: METHOD
               value: scrapeByIndustryLocation
-            - name: CONTINENT
-              value: Europe
+            - name: STATE
+              value: "Canada - All"
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
