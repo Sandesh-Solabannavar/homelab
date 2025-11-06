@@ -5,7 +5,7 @@ resources:
   - deployment-history.yaml
   - deployment-history-desc.yaml
   - deployment-company-update.yaml
-  - deployment-copy.yaml
+  # - deployment-copy.yaml
   # - deployment-company-update-desc.yaml
 
   # - deployment-industry-scraping.yaml
