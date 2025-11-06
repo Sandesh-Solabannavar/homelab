@@ -29,7 +29,7 @@ spec:
             - name: ORDER
               value: desc
             - name: LIMIT
-              value: "100"
+              value: "500"
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
