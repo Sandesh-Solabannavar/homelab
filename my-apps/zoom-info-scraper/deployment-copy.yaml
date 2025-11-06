@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: zoom-info-scraper-copy
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:2946101
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:db43cd5
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
@@ -25,7 +25,7 @@ spec:
             - name: COUNTRY
               value: CA
             - name: METHOD
-              value: copyData
+              value: processCompanyCopy
             - name: ORDER
               value: asc
             - name: LIMIT
