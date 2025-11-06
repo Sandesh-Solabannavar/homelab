@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: zoom-info-scraper-industry
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:1c06556
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:507cbc1
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
@@ -26,8 +26,8 @@ spec:
               value: software.crm
             - name: METHOD
               value: scrapeByIndustryLocation
-            - name: STATE
-              value: "Canada - All"
+            - name: CONTINENT
+              value: "South America"
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
