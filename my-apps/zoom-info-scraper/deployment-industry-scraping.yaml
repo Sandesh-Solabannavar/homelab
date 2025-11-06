@@ -29,7 +29,7 @@ spec:
             - name: CONTINENT
               value: Europe
             - name: ORDER
-              value: asc
+              value: desc
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
