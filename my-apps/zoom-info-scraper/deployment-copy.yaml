@@ -29,7 +29,7 @@ spec:
             - name: ORDER
               value: asc
             - name: LIMIT
-              value: "500"
+              value: "50"
             - name: CONTINUE
               value: "true"
           envFrom:
