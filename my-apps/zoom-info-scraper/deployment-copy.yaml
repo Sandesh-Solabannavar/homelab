@@ -25,11 +25,11 @@ spec:
             - name: COUNTRY
               value: CA
             - name: METHOD
-              value: processCompanyCopy
+              value: copyData
             - name: ORDER
               value: asc
             - name: LIMIT
-              value: "50"
+              value: "500"
             - name: CONTINUE
               value: "true"
           envFrom:
