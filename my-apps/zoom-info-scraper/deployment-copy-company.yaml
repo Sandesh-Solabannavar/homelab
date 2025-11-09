@@ -17,21 +17,19 @@ spec:
     spec:
       containers:
         - name: zoom-info-scraper-copy-company
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:1cb4c3c
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:066a13d
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
-            - name: COUNTRY
-              value: CA
             - name: METHOD
               value: processCompanyCopy
-            - name: ORDER
-              value: asc
             - name: LIMIT
-              value: "500"
+              value: "200"
             - name: CONTINUE
               value: "true"
+            - name: INDUSTRY
+              value: "Customer Relationship Management (CRM) Software"
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
