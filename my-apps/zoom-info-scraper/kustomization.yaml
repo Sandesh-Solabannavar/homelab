@@ -4,7 +4,7 @@ resources:
   - namespace.yaml
   - deployment-history.yaml
   - deployment-history-desc.yaml
-  - deployment-company-update.yaml
+  # - deployment-company-update.yaml
   # - deployment-company-update-desc.yaml
   - deployment-copy.yaml
   - deployment-copy-company.yaml
