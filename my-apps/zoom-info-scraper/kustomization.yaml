@@ -6,8 +6,8 @@ resources:
   - deployment-history-desc.yaml
   - deployment-company-update.yaml
   # - deployment-company-update-desc.yaml
-  - deployment-copy.yaml
-  - deployment-copy-company.yaml
+  # - deployment-copy.yaml
+  # - deployment-copy-company.yaml
 
   # - deployment-industry-scraping.yaml
   # - postgres.yaml
