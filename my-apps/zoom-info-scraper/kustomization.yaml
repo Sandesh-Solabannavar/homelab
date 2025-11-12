@@ -3,15 +3,14 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - deployment-history.yaml
-  - deployment-history-desc.yaml
   - deployment-company-update.yaml
+  - deployment.yaml
   # - deployment-company-update-desc.yaml
   # - deployment-copy.yaml
   # - deployment-copy-company.yaml
 
   # - deployment-industry-scraping.yaml
   # - postgres.yaml
-  # - deployment.yaml
   # - deployment-reverse.yaml
   # - deployment-gb.yaml
   # - deployment-canada.yaml
