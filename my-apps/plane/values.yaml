@@ -6,6 +6,10 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-stg
     cert-manager.io/common-name: plane.isandeshsol.com
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  tls:
+    - hosts:
+        - plane.isandeshsol.com
+      secretName: plane-tls
 
 external_secrets:
   app_env_existingSecret: plane-secret
