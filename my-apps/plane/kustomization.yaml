@@ -6,5 +6,5 @@ helmCharts:
     repo: https://helm.plane.so/
     releaseName: plane
     namespace: plane
-    version: 1.49.0
+    version: 1.4.0
     valuesFile: values.yaml
