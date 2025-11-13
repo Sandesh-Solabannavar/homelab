@@ -4,7 +4,7 @@ kind: Kustomization
 helmCharts:
   - name: plane
     repo: https://helm.plane.so/
-    releaseName: plane
+    releaseName: plane-ce
     namespace: plane
     version: 1.4.0
     valuesFile: values.yaml
