@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-copy-person
+  name: zoom-info-scraper-refine-db
   namespace: zoom-info
   labels:
     app: zoom-info-scraper
@@ -9,25 +9,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-copy-person
+      app: zoom-info-scraper-refine-db
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-copy-person
+        app: zoom-info-scraper-refine-db
     spec:
       containers:
-        - name: zoom-info-scraper-copy-person
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:53a35bc
+        - name: zoom-info-scraper-refine-db
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:99d1380
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
-            - name: COUNTRY
-              value: CA
             - name: METHOD
-              value: copyPeople
-            - name: ORDER
-              value: asc
+              value: refineInfotropy
             - name: LIMIT
               value: "500"
             - name: CONTINUE

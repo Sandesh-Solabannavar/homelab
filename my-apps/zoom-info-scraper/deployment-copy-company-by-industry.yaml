@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-ollama
+  name: zoom-info-scraper-copy-by-industry
   namespace: zoom-info
   labels:
     app: zoom-info-scraper
@@ -9,29 +9,27 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-ollama
+      app: zoom-info-scraper-copy-by-industry
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-ollama
+        app: zoom-info-scraper-copy-by-industry
     spec:
       containers:
-        - name: zoom-info-scraper-ollama
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:53a35bc
+        - name: zoom-info-scraper-copy-by-industry
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:99d1380
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
-            - name: COUNTRY
-              value: US
             - name: METHOD
-              value: aiDomain
-            - name: ORDER
-              value: asc
+              value: processCopyByIndustry
             - name: LIMIT
-              value: "500"
+              value: "200"
             - name: CONTINUE
               value: "true"
+            - name: INDUSTRY
+              value: "Customer Relationship Management (CRM) Software"
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
