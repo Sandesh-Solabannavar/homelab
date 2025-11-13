@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: zoom-info-scraper-ollama-desc
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:1cb4c3c
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:53a35bc
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
