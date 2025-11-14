@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: zoom-info-scraper-email-gen
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:41c4321
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:388b307
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
