@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zoom-info-scraper-email-gen
+  namespace: zoom-info
+  labels:
+    app: zoom-info-scraper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zoom-info-scraper-email-gen
+  template:
+    metadata:
+      labels:
+        app: zoom-info-scraper-email-gen
+    spec:
+      containers:
+        - name: zoom-info-scraper-email-gen
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:a709e62
+          imagePullPolicy: IfNotPresent # Important for using remote images
+          ports:
+            - containerPort: 3000
+          env:
+            - name: METHOD
+              value: emailVerify
+            - name: LIMIT
+              value: "500"
+            - name: CONTINUE
+              value: "true"
+          envFrom:
+            - secretRef:
+                name: zoom-info-scraper-secrets
+      imagePullSecrets:
+        - name: ghcr-login-secret

@@ -6,6 +6,7 @@ resources:
   - deployment-company-update.yaml
   - deployment.yaml
   - deployment-refine-db.yaml
+  - deployment-email-generation.yaml
   # - deployment-company-update-desc.yaml
   # - deployment-copy.yaml
   # - deployment-copy-company.yaml
