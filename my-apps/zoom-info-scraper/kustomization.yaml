@@ -5,7 +5,7 @@ resources:
   - deployment-history.yaml
   - deployment-company-update.yaml
   - deployment.yaml
-  - deployment-email-generation.yaml
+  # - deployment-email-generation.yaml
   # - deployment-refine-db.yaml
   # - deployment-company-update-desc.yaml
   # - deployment-copy.yaml
