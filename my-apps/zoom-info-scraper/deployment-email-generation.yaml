@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: zoom-info-scraper-email-gen
-          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:d9c7709
+          image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:a57ba82
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
@@ -25,7 +25,7 @@ spec:
             - name: METHOD
               value: emailVerify
             - name: LIMIT
-              value: "100"
+              value: "500"
             - name: CONTINUE
               value: "true"
           envFrom:
