@@ -1,35 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: zoom-info-scraper-company-update
+  name: zoom-info-scraper-apo-comp-desc
   namespace: zoom-info
   labels:
-    app: zoom-info-scraper-company-update
+    app: zoom-info-scraper
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: zoom-info-scraper-company-update
+      app: zoom-info-scraper-apo-comp-desc
   template:
     metadata:
       labels:
-        app: zoom-info-scraper-company-update
+        app: zoom-info-scraper-apo-comp-desc
     spec:
       containers:
-        - name: zoom-info-scraper-company-update
+        - name: zoom-info-scraper-apo-comp-desc
           image: ghcr.io/sandesh-solabannavar/zoominfo-scraper:0186457
           imagePullPolicy: IfNotPresent # Important for using remote images
           ports:
             - containerPort: 3000
           env:
-            - name: COUNTRY
-              value: US
             - name: METHOD
-              value: refreshCompanies
+              value: processApollo
+            - name: BATCH_SIZE
+              value: "100"
             - name: ORDER
-              value: asc
-            - name: LIMIT
-              value: "500"
+              value: desc
           envFrom:
             - secretRef:
                 name: zoom-info-scraper-secrets
