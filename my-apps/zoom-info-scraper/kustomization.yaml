@@ -8,7 +8,7 @@ resources:
   - deployment-email-generation.yaml
 
   - deployment-apo-asc.yaml
-  - deployment-apo-desc.yaml
+  # - deployment-apo-desc.yaml
   # - deployment-refine-db.yaml
   # - deployment-company-update-desc.yaml
   # - deployment-copy.yaml
